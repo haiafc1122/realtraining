@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -36,4 +37,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function authenticated()
+    {
+        $user = Auth::user();
+        if (!$user->is_active) {
+            auth()->logout();
+            return back()->with('activeWarning', 'Your accout has been blocked.');
+        }
+        return redirect()->intended($this->redirectPath());
+    }
+
+
 }
