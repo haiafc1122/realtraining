@@ -1,0 +1,26 @@
+#copyright{
+    text-align: center;
+    color: #f7fafb;
+    line-height: 3.6;
+}
+#bottom{
+    width: 100%;
+    background-color: #444444;
+    height: 50px;
+}
+#bottom>div{
+    height: 100%;
+    position: relative;
+}
+#bottom>div img{
+    margin: 3px 16px 1px 1px;
+    top: 5px;
+    bottom: 0;
+}
+#img-mother{
+    right: 0;
+}
+
+#img-privacypolicy{
+    right: 9px;
+}

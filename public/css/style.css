@@ -1,0 +1,376 @@
+.text-uppercase{
+	text-transform: uppercase;
+}
+.full_width{
+	width: 100%;
+}
+.block{
+	display: block;
+}
+.full_height{
+	height: 100%;
+}
+.mg_r_10{
+	margin-right: 10px; 
+}
+.mg_l_10{
+	margin-left: 10px; 
+}
+.mg_t_10{
+	margin-top: 10px; 
+}
+.mg_b_10{
+	margin-bottom: 10px; 
+}
+.mg_r_0{
+	margin-right: 0px!important; 
+}
+.mg_l_0{
+	margin-left: 0px!important; 
+}
+.mg_t_0{
+	margin-top: 0px!important; 
+}
+.mg_b_0{
+	margin-bottom: 0px!important; 
+}
+.pa_l_0{
+	padding-left: 0!important;
+}
+.pa_r_0{
+	padding-right: 0!important;
+}
+.pa_l_10{
+	padding-left: 10px;
+}
+.pa_r_10{
+	padding-right: 10px;
+}
+.pa_t_10{
+	padding-right: 10px;
+}
+.pa_b_10{
+	padding-right: 10px;
+}
+ul{
+	margin: 0;
+}
+.right_absolute{
+	position: absolute!important;
+	right: 0;
+}
+#top{
+	background-color: #fff;
+	height: 50px;
+}
+header{
+	background-color: #558C89;
+	height: 80px;
+}
+#top .container{
+	padding-top: 15px;
+}
+#top .container ul li{
+	display: inline-block;
+	margin-right: 10px;
+}
+#top a.btn{
+	top: -8px;
+}
+header nav{
+	background-color: inherit;
+    box-shadow: none;
+}
+header .brand-logo .logo{
+	margin-top: 9px;
+}
+header .logo img{
+	padding: 2px;
+    background-color: #fff;
+}
+header .brand-logo .right{
+	margin-left: 20px;
+    margin-top: 14px;
+}
+header .brand-logo h1{
+	font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+header .brand-logo h3{
+    font-size: 14px;
+    margin: 0;
+}
+/*#navigation{
+	background-image: url(../img/bg_natural_sougen.png);
+	background-size: contain;
+}*/
+@media only screen and (max-width: 992px){
+	nav .brand-logo{
+		left: 0%;
+	    -webkit-transform: translateX(-0%);
+	    transform: translateX(-0%);
+	}
+	.page_label_img{
+		text-align: center;
+	    height: 225px!important;
+	}
+	.page_label_img img{
+	    width: 50%;
+	}
+}
+.button-collapse .material-icons{
+	font-size: 36px;
+    margin-top: 6px;
+}
+header nav ul.right_absolute li{
+	margin: 0 7px;
+}
+header nav ul.right_absolute li a{
+	display: inline;
+    padding: 0 0 9px 0;
+}
+header nav ul.nav_desktop li:hover,header nav ul.nav_desktop li.active,header nav ul.nav_desktop li a:hover{
+	background-color : transparent;
+}
+header nav ul.nav_desktop li.active a,header nav ul.nav_desktop li:hover a{
+	border-bottom: 3px solid #fff;
+}
+section{
+	background-image: url(../img/bg_natural_sougen.png);
+	background-size: cover;
+}
+section .content_1 {
+	padding: 30px 20px;
+}
+section .content_1 ul li {
+	list-style: initial;
+}
+section .content_1 ul {
+    /*font-size: 18px;*/
+    margin-top: 15px;
+}
+section .content_1 .left {
+    padding-left: 25px;
+}
+section .content_1 ul p{
+	color: #1A1A1A;
+}
+.carousel .carousel-item{
+    /*width: 20%;*/
+    height: auto;
+}
+section .content_2{
+	background-color: #EEEEEE;
+    padding: 0 30px;
+    height: 260px;
+    overflow: hidden;
+}
+section>div.container{
+    position: relative;
+}
+.carousel{
+	height: 300px;
+}
+.carousel .indicators .indicator-item{
+	height: 15px;
+    width: 15px;
+    background-color: #fff;
+}
+.carousel .indicators .indicator-item.active{
+	background-color: #fff;
+}
+.carousel .indicators{
+	bottom: 50px;
+}
+@media only screen and (max-width: 600px){
+	section .content_2{
+	    top: 0px;
+		height: 200px;
+		padding: 30px;
+	}
+	.carousel{
+		height: 200px;
+	}
+	section .row.content_3 {
+		background-position-x: -1000px;
+	}
+	section,section .content_1{
+		top: 0;
+	}
+	.carousel .indicators {
+	    bottom: 10px;
+	}
+	#blog_main .page_label h3{
+	    font-size: 16px!important;
+	}
+	.img_fixed{
+		width: 100px;
+	}
+}
+@media only screen and (min-width: 601px){
+	#index_page>div.container{
+		/*padding-top: 386px;*/
+	}
+	section .content_1 {
+	    /*position: absolute;
+	    top: 0;*/
+	    padding-bottom: 0;
+	}
+}
+section .row.content_3 {
+	background-image: url(../img/bg_school_room.png);
+	background-size: cover;
+    margin: 40px 0 0 0;
+    padding-top: 80px;
+}
+section .content_3>div{
+    position: relative;
+}
+section .content_3 .text_box{
+	position: absolute;
+    top: 0px;
+    height: 42%;
+    width: calc(100% - 23px);
+    font-weight: bold;
+}
+section .content_3 .text_box p{
+	width: 100%;
+}
+section .content_4>div>div.row{
+	padding: 20px 20px;
+    margin-bottom: 0;
+}
+section .content_4{
+	margin-bottom: 0;
+}
+section .content_4>div>div.row .text_box{
+	font-size: 14px;
+    line-height: 18px;
+}
+section .content_4>div:first-child{
+	margin: 0 0.75rem;
+	width: calc(100% - 1.5rem);
+	height: 50px;
+	background-color: #EEEEEE;
+}
+footer{
+	background-color: #558C89;
+}
+footer>div{
+    padding: 30px 20px;
+    line-height: 25px;
+}
+
+.breadcrumb{
+	font-size: 14px;
+}
+.breadcrumb:before{
+	font-size: 20px;
+    margin: 0;
+}
+.breadcrumb,.breadcrumb:before{
+	color: #9D9D9D;
+    line-height: 37px;
+}
+.breadcrumb:last-child{
+	color: inherit;
+}
+.breadcrumb i{
+    line-height: 37px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+#blog_main>.container>.row>.col{
+    padding-left: 22px;
+    padding-right: 22px;
+}
+#blog_main .page_label{
+	height: 50px
+}
+#blog_main .page_label h3{
+    margin: 0;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 50px;
+}
+.title_1{
+	font-size: 20px;
+    font-weight: bold;
+}
+.title_2{
+	font-size: 15px;
+    margin: 0;
+    font-weight: bold;
+}
+.page_label_img{
+	height: 170px;
+	overflow: hidden;
+}
+.page_label_right_img{
+	position: relative;
+	margin-bottom: 110px;
+}
+.page_label_right_img img{
+	position: absolute;
+	top: -65px;
+    right: 0;
+}
+.pagination li.active{
+	background-color: #2096f6;
+}
+.top_fixed{
+	position: fixed;
+    z-index: 998;
+    top: 0;
+    width: 100%;
+    box-shadow: 0px 1px 9px 0px #434343;
+}
+.form_field{
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 8px;
+}
+.form_field .error{
+	border-color: #E57373;
+}
+.form_field .error_message{
+	margin-top: 3px;
+	margin-bottom: 0;
+	font-size: 12px;
+}
+.modal input,.modal select,.modal textarea{
+	border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin-bottom: 12px;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+.modal textarea{
+	outline: none;
+    height: initial;
+}
+.modal select{
+	margin-left: auto;
+	margin-right: auto;
+}
+.modal input[type=text]:focus:not([readonly]){
+	box-shadow: none;
+	border-color: #ddd;
+}
+.modal{
+	max-height: none;
+}
+.img_fixed{
+	display: none;
+    position: fixed;
+    left: 25px;
+    bottom: 48px;
+    z-index: 2;
+}
+.modal .modal-footer .btn{
+	float: none;
+}

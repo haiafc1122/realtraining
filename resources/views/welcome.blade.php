@@ -1,95 +1,98 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
+@section('main')
+    <section id="index_page">
+        <div class="container white-text">
+            <div class="row content_1">
+                <div class="col s12 m6 l7 right">
+                    <img src="images/zei_shopping_mynumber.png" class="full_width">
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="col s12 m6 l5 light-blue-text text-darken-1 left">
+                    <ul>
+                        <li>
+                            <p><strong>hello</strong></p>
+                        </li>
+                    </ul>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+            <div class="content_2">
+                <div class="carousel" data-indicators="true">
+                    <a class="carousel-item" href="#one!"><img src="images/2016-11-23_160637.jpg"></a>
+                    <a class="carousel-item" href="#two!"><img src="images/2016-11-23_160704.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="images/2016-11-23_160637.jpg"></a>
+                    <a class="carousel-item" href="#three!"><img src="images/2016-11-23_160704.jpg"></a>
+                    <a class="carousel-item" href="#four!"><img src="images/2016-11-23_160637.jpg"></a>
+                </div>
+            </div>
+            <div class="row content_3">
+                <div class="col m4 s12">
+                    <img src="images/placard_woman_1smile.png" class="full_width">
+                    <div class="text_box valign-wrapper">
+                        <p class="valign center">Selling Point A1</p>
+                    </div>
+                </div>
+                <div class="col m4 s12">
+                    <img src="images/placard_man_2angry.png" class="full_width">
+                    <div class="text_box valign-wrapper">
+                        <p class="valign center">Selling Point A1</p>
+                    </div>
+                </div>
+                <div class="col m4 s12">
+                    <img src="images/placard_woman_4laugh.png" class="full_width">
+                    <div class="text_box valign-wrapper">
+                        <p class="valign center">Selling Point A1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row content_4">
+                <div class=" hide-on-small-only"></div>
+                <div class="col s12 m6">
+                    <div class="row valign-wrapper">
+                        <div class="col s12 m4 img">
+                            <img src="images/img.jpg" class="circle responsive-img">
+                        </div>
+                        <div class="col s12 m8 text_box">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori</p>
+                            <p class="light-blue-text text-darken-2"><strong>-Realworld</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="row valign-wrapper">
+                        <div class="col s12 m4 img">
+                            <img src="images/img.jpg" class="circle responsive-img">
+                        </div>
+                        <div class="col s12 m8 text_box">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori</p>
+                            <p class="light-blue-text text-darken-2"><strong>-Realworld</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="row valign-wrapper">
+                        <div class="col s12 m4 img">
+                            <img src="images/img.jpg" class="circle responsive-img">
+                        </div>
+                        <div class="col s12 m8 text_box">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori</p>
+                            <p class="light-blue-text text-darken-2"><strong>-Realworld</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="row valign-wrapper">
+                        <div class="col s12 m4 img">
+                            <img src="images/img.jpg" class="circle responsive-img">
+                        </div>
+                        <div class="col s12 m8 text_box">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco labori</p>
+                            <p class="light-blue-text text-darken-2"><strong>-Realworld</strong></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+    @include('layouts.footer')
+@endsection
+
