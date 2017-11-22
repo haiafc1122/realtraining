@@ -28,6 +28,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
     Route::middleware('auth:admin')->group(function (){
         Route::get('/dashboard', 'Admincontroller@index')->name('admin.dashboard');
         Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
+        Route::resource('category', 'CategoryController',['except' => ['show']]);
+        Route::resource('client', 'ClientController',['except' => ['show']]);
     });
 
 });
