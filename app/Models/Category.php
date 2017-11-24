@@ -8,6 +8,10 @@ class Category extends Model
 {
     protected $table = 'Categories';
 
+    protected $fillable = [
+        'name','description'
+        ];
+
     public function clients()
     {
         return $this->belongsToMany(Client::class,'CategoryClient', 'category_id', 'client_id');
