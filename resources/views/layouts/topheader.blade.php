@@ -48,6 +48,9 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
+                                <li>
+                                    <a href="{{ route('user.update') }}">Profile</a>
+                                </li>
                             </ul>
                         </li>
                 @endguest
