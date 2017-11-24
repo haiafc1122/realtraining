@@ -30,6 +30,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
         Route::resource('category', 'CategoryController',['except' => ['show']]);
         Route::resource('client', 'ClientController',['except' => ['show']]);
+        Route::get('user', 'UserController@index')->name('admin.show.list.user');
+        Route::put('user/{user}/toggle_active_status', 'UserController@toggle_active_status')->name('admin.edit.user');
     });
 
 });

@@ -13,7 +13,7 @@
 
                 @if (session('activeWarning'))
                     <div class="alert alert-warning">
-                        {{ trans('auth.activeWarning') }}
+                        {{ session('activeWarning') }}
                     </div>
                 @endif
 
