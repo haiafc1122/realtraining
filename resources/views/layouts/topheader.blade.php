@@ -50,7 +50,7 @@
                                 </li>
                             </ul>
                         </li>
-                        @endguest
+                @endguest
             </ul>
         </div>
         <div class="clearfix"></div>

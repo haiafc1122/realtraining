@@ -43,7 +43,7 @@ class LoginController extends Controller
         $user = Auth::user();
         if (!$user->is_active) {
             auth()->logout();
-            return back()->with('activeWarning', 'Your accout has been blocked.');
+            return back()->with('activeWarning', 'あなたのアカウントはブロックされています');
         }
         return redirect()->intended($this->redirectPath());
     }

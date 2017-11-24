@@ -24,7 +24,6 @@ class ClientCreateRequest extends FormRequest
     public function rules()
     {
         $client = request()->route('client');
-
         return [
             'title'        => 'required|max:255|string',
             'started_date' => 'required',

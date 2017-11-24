@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'redis' => [
+    /*'redis' => [
 
         'client' => 'predis',
 
@@ -115,6 +115,6 @@ return [
             'database' => 0,
         ],
 
-    ],
+    ],*/
 
 ];
