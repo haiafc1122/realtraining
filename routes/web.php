@@ -12,13 +12,18 @@
 */
 
 Route::get('/', function () {
+    return redirect('/welcome');
+});
+Route::get('/welcome', function(){
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('category/{category}', 'HomeController@showClientByCategory')->name('show_clients_by_category');
+    Route::resource('client', 'ClientController', ['only' =>['show']]);
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profile', 'UserController@show')->name('user.show');
     Route::post('/profile', 'UserController@update')->name('user.update');
     Route::post('/profile/password', 'UserController@updatePassword')->name('password.update');
