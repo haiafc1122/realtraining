@@ -8,13 +8,16 @@ class Action extends Model
 {
     protected $table = 'actions';
 
-    public function users()
+    protected $fillable = [
+        'user_id', 'client_id', 'point', 'state'
+    ];
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
-    public function categories()
+    public function client()
     {
-        return $this->belongsTo(Client::class, 'client_id');
+        return $this->belongsTo(Client::class);
     }
 }

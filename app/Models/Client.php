@@ -21,4 +21,11 @@ class Client extends Model
     {
         return $this->belongsToMany(Category::class, 'category_client', 'client_id', 'category_id');
     }
+
+    public function get_active_points()
+    {
+        $active_point = $this->point_num * $this->rate * 0.1;
+        return $active_point;
+    }
+
 }

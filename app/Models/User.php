@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Action;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -30,7 +29,7 @@ class User extends Authenticatable
 
     public function userPoint()
     {
-        return $this->hasOne(UserPoint::class, 'user_id');
+        return $this->hasOne(UserPoint::class);
     }
 
     public function messages()
@@ -40,6 +39,6 @@ class User extends Authenticatable
 
     public function actions()
     {
-        return $this->hasMany(Action::class, 'user_id');
+        return $this->hasMany(Action::class);
     }
 }
