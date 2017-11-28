@@ -19,6 +19,6 @@ class Client extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'CategoryClient', 'client_id', 'category_id');
+        return $this->belongsToMany(Category::class, 'category_client', 'client_id', 'category_id');
     }
 }

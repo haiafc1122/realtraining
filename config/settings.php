@@ -8,5 +8,8 @@ return [
     'user'=>[
         'active_true'  =>1,
         'active_false' =>0,
+    ],
+    'category'=>[
+        'use_often'  => 1,
     ]
 ];

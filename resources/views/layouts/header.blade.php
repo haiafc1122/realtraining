@@ -13,11 +13,10 @@
                 </a>
                 <a href="#" data-activates="navigation" class="right_absolute button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="nav_desktop right_absolute hide-on-med-and-down text-uppercase">
-                    <li class="active"><a href="">caregory 1</a></li>
-                    <li><a href="">caregory 1</a></li>
-                    <li><a href="">caregory 2</a></li>
-                    <li><a href="">caregory 3</a></li>
-                    <li><a href="">caregory 4</a></li>
+                    @foreach($categories as $category)
+                        <li><a href="{{ route('show_clients_by_category', $category->id) }}">{{ $category->name }}</a></li>
+                    @endforeach
+
                 </ul>
             </div>
         </nav>
