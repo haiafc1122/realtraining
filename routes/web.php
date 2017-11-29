@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', 'UserController@show')->name('user.show');
     Route::post('/profile', 'UserController@update')->name('user.update');
     Route::post('/profile/password', 'UserController@updatePassword')->name('password.update');
+    Route::post('/client/{client}/action', 'ClientController@actionClient')->name('action.client');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
