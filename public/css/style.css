@@ -126,6 +126,7 @@ header .brand-logo h3{
 	color: #ff0010;
 }
 
+
 @media only screen and (max-width: 992px){
 	nav .brand-logo{
 		left: 0%;
@@ -386,7 +387,7 @@ footer>div{
 	display: none;
     position: fixed;
     left: 25px;
-    bottom: 48px;
+    bottom: 56px;
     z-index: 2;
 }
 .modal .modal-footer .btn{

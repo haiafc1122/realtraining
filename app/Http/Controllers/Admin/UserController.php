@@ -28,4 +28,9 @@ class UserController extends Controller
         }
     }
 
+    public function get_user_passbook(User $user){
+        $actions = $user->actions()->paginate(config('settings.paginate.clients'));
+        return view('admin.user.show_passbook', compact(['user','actions']));
+    }
+
 }

@@ -27,4 +27,15 @@ class Action extends Model
 
         return empty($action_status[$this->state]) ? "-" : $action_status[$this->state];
     }
+
+    public function show_toggle_approval()
+    {
+        $toggle_status = config('settings.action.toggle.approval');
+        return empty($toggle_status[$this->state]) ? "-" : $toggle_status[$this->state];
+    }
+    public function show_toggle_reject()
+    {
+        $toggle_status = config('settings.action.toggle.reject');
+        return empty($toggle_status[$this->state]) ? "-" : $toggle_status[$this->state];
+    }
 }
