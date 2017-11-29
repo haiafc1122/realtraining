@@ -13,6 +13,7 @@
                     <a href="{{ route('register') }}" class="waves-effect waves-light btn hide-on-small-only red lighten-1">Register</a>
                     @else
                     <!--Messages: style can be found in dropdown.less-->
+
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-comments-o"></i>
@@ -31,8 +32,13 @@
                                 <li class="footer"><a href="#">See All Messages</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a class="user_menu" href="{{ route('passbook') }}"><span>{{ Auth::user()->userPoint->approval_point }}pt
+                                </span>(判定中<span>{{ Auth::user()->userPoint->pending_point }}pt</span>)
+                            </a>
+                        </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                            <a href="#" id="user_name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
