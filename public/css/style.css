@@ -102,6 +102,29 @@ header .brand-logo h3{
     font-size: 14px;
     margin: 0;
 }
+.user_menu span{
+	color: #EC7900;
+}
+.user_menu{
+	color: black;
+	font-family: bold;
+	font-size: 16px;
+}
+#user_name{
+	color: black;
+	font-family: bold;
+}
+.started {
+	color: #97ec04;
+}
+
+.approval {
+	color: #EC7900;
+}
+
+.reject {
+	color: #ff0010;
+}
 
 @media only screen and (max-width: 992px){
 	nav .brand-logo{

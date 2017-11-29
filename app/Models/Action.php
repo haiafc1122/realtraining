@@ -20,4 +20,11 @@ class Action extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    public function show_status()
+    {
+        $action_status = config('settings.action.state');
+
+        return empty($action_status[$this->state]) ? "-" : $action_status[$this->state];
+    }
 }

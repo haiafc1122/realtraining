@@ -36,4 +36,11 @@ class UserController extends Controller
         return back()->with('error', '現在のパスワードを正しく入力してください！');
     }
 
+    public function showPassbook()
+    {
+        $user = Auth::user();
+        $actions = $user->actions()->paginate(config('settings.paginate.actions'));
+        return view('passbook.show', compact(['actions', 'user']));
+    }
+
 }

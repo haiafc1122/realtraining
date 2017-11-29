@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function actions()
     {
-        return $this->hasMany(Action::class);
+        return $this->hasMany(Action::class)->orderBy('created_at', 'desc');
     }
 }
