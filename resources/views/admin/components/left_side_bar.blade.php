@@ -38,7 +38,20 @@
                     <li><a href="{{ url('/admin/user') }}"><i class="fa fa-circle-o"></i>Index</a></li>
                 </ul>
             </li>
-            {{--Users--}}
+
+            {{--Contacts--}}
+            <li class="treeview">
+                <a href="{{ url('/admin/contact') }}>
+                    <i class="fa fa-dashboard" ></i> <span>コンタクト管理</span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('/admin/contact') }}"><i class="fa fa-circle-o"></i>Index</a></li>
+                </ul>
+            </li>
+            {{--Passbook--}}
             <li class="treeview">
                 <a href="{{ url('/admin/passbook') }}>
                     <i class="fa fa-dashboard" ></i> <span>通帳管理</span>

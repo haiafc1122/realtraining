@@ -47,7 +47,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        ログアウト
+                                        <img src="https://png.icons8.com/logout-rounded-up/nolan/25/000000">ログアウト
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -55,7 +55,8 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <a href="{{ route('user.update') }}">プロフィール</a>
+                                    <a href="{{ route('user.update') }}"><img src="https://png.icons8.com/customer/nolan/25/000000">プロフィール</a>
+
                                 </li>
                             </ul>
                         </li>
