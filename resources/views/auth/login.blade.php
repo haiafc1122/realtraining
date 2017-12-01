@@ -56,9 +56,10 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
-                                    <label>
-                                        <input id="login-checkbox" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
+                                    <p>
+                                        <input id="remember" type="checkbox" class="filled-in" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <label for="remember" >次回から自動的にログイン</label>
+                                    </p>
                                 </div>
                             </div>
                         </div>

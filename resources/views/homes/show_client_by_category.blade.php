@@ -5,12 +5,10 @@
     <section id="blog_main">
         <div class="container white">
             <div class="row mg_b_0">
-                <div class="col s12">
-                    <a href="#" class="breadcrumb"><u><i class="fa fa-home"></i>カテゴリー</u></a>
-                    <a href="#" class="breadcrumb"><u>案件</u></a>
+                <div class="row">
                 </div>
                 <div class="col s12 page_label mg_b_10">
-                    <div class="full_height mg_r_10 teal darken-1 left" style="width:10px;"></div>
+                    <div class="full_height mg_r_10 teal darken-1 left"></div>
                     <h3 class="text-uppercase teal lighten-5">{{ $category->name }}</h3>
                 </div>
                 <div class="col s12 l9">

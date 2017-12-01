@@ -1,3 +1,4 @@
+<a href="#top"><img src="{{ asset('images/topup.png') }}" class="img_fixed"></a>
 <footer>
     <div class="container">
         <ul class="white-text">

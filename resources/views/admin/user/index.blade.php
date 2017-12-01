@@ -26,7 +26,7 @@
                             {{ session('message')}}
                         </div>
                     @endif
-                    <table class="table table-bordered">
+                    <table class="table bordered ">
                         <thead>
                         <tr >
                             <th>ID</th>
@@ -59,6 +59,11 @@
                                             {{ $user->is_active == 1 ? 'Disable' : 'Enable' }}
                                         </button>
                                     </form>
+                                </td>
+                                <td>
+                                    <a  class="btn btn-info" href="{{ route('admin.passbook', $user->id) }}">
+                                        通帳確認
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

@@ -47,7 +47,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        ログアウト
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -55,7 +55,7 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <a href="{{ route('user.update') }}">Profile</a>
+                                    <a href="{{ route('user.update') }}">プロフィール</a>
                                 </li>
                             </ul>
                         </li>

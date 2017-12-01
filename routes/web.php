@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('category/{category}', 'HomeController@showClientByCategory')->name('show_clients_by_category');
-    Route::resource('client', 'ClientController', ['only' =>['show']]);
+    Route::resource('client', 'ClientController', ['only' => ['show']]);
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profile', 'UserController@show')->name('user.show');
     Route::post('/profile', 'UserController@update')->name('user.update');
@@ -38,10 +38,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
     Route::middleware('auth:admin')->group(function (){
         Route::get('/dashboard', 'Admincontroller@index')->name('admin.dashboard');
         Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
-        Route::resource('category', 'CategoryController',['except' => ['show']]);
-        Route::resource('client', 'ClientController',['except' => ['show']]);
+        Route::resource('category', 'CategoryController', ['except' => ['show']]);
+        Route::resource('client', 'ClientController', ['except' => ['show']]);
         Route::get('user', 'UserController@index')->name('admin.show.list.user');
         Route::put('user/{user}/toggle_active_status', 'UserController@toggle_active_status')->name('admin.edit.user');
+        Route::get('user/{user}/passbook', 'UserController@get_user_passbook')->name('admin.passbook');
+        Route::resource('passbook', 'PassbookController', ['only' => ['index']]);
+        Route::put('action/{action}/approval', 'PassbookController@approval')->name('admin.passbook.approval');
+        Route::put('action/{action}/reject', 'PassbookController@reject')->name('admin.passbook.reject');
+
     });
 
 });
