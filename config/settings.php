@@ -8,6 +8,7 @@ return [
         'admin'     => [
           'clients' => 15,
         ],
+        'contact'   => 10
     ],
     'user'=>[
         'active_true'  =>1,
@@ -15,6 +16,10 @@ return [
     ],
     'category'=>[
         'use_often'  => 1,
+    ],
+    'contact' => [
+        'checked' => 1,
+        'uncheck' => 0
     ],
     'action' => [
         'state' => [

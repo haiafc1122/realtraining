@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/profile/password', 'UserController@updatePassword')->name('password.update');
     Route::post('/client/{client}/action', 'ClientController@actionClient')->name('action.client');
     Route::get('/passbook', 'UserController@showPassbook')->name('passbook');
+    Route::resource('contact', 'ContactController', ['only' => ['create', 'store']]);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
@@ -46,6 +47,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::resource('passbook', 'PassbookController', ['only' => ['index']]);
         Route::put('action/{action}/approval', 'PassbookController@approval')->name('admin.passbook.approval');
         Route::put('action/{action}/reject', 'PassbookController@reject')->name('admin.passbook.reject');
+        Route::put('contact/{contact}/check', 'ContactController@check')->name('admin.contact.check');
+        Route::resource('contact', 'ContactController', ['only' => ['index']]);
 
     });
 
