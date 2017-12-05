@@ -36,7 +36,7 @@
                     <thead class="cf">
                     <tr>
                         <th class="col-md-1">ユーザー</th>
-                        <th class="col-md-1">利用日</th>
+                        <th class="col-md-2">利用日</th>
                         <th class="col-md-5">内容</th>
                         <th class="col-md-1">状態</th>
                         <th class="col-md-1">承認</th>
@@ -54,27 +54,23 @@
                             <td class="{{ $action->state }}">{{ $action->show_status() }}</td>
                             <td>
                                 @if($action->state == config('settings.action.status.pending'))
-                                    <form action="{{ url('admin/action/' . $action->id .'/approval') }}" method="POST">
+                                    <form action="{{ route('admin.passbook.approval', $action->id) }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
-                                        @if($action->state == config('settings.action.status.pending'))
                                             <button type="submit" class="btn btn-success">
-                                                {{ $action->show_toggle_approval() }}
+                                                確認
                                             </button>
-                                        @endif
                                     </form>
                                 @endif
                             </td>
                             <td>
                                 @if($action->state == config('settings.action.status.pending'))
-                                <form action="{{ url('admin/action/' . $action->id .'/reject') }}" method="POST">
+                                <form action="{{ route('admin.passbook.reject', $action->id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('PUT') }}
-                                    @if($action->state == config('settings.action.status.pending'))
                                         <button type="submit" class="btn btn-danger">
-                                            {{ $action->show_toggle_reject() }}
+                                            却下
                                         </button>
-                                    @endif
                                 </form>
                                 @endif
                             </td>

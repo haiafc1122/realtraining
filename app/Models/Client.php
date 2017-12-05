@@ -9,7 +9,7 @@ class Client extends Model
     protected $table = 'clients';
 
     protected $fillable =[
-        'title', 'start_date', 'end_date', 'url', 'banner', 'point_num', 'rate', 'description'
+        'title', 'started_date', 'end_date', 'url', 'banner', 'point_num', 'rate', 'description'
     ];
 
     public function actions()

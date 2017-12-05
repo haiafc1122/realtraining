@@ -14,8 +14,17 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $client_use_oftens = $categories->where('id', config('settings.category.use_often'))->first()->clients;
-        return view('homes.index', compact(['categories', 'clients', 'client_use_oftens']));
+        if ($categories->where('id', config('settings.category.use_often'))->first()){
+            $client_use_oftens = $categories->where('id', config('settings.category.use_often'))->first()->clients;
+        }
+
+        if ($categories->where('id', config('settings.category.campaign'))->first()){
+            $campaigns = $categories->where('id', config('settings.category.campaign'))->first()->clients;
+        }
+        return view('homes.index', compact(['categories', 'clients', 'client_use_oftens', 'campaigns']));
+
+
+
     }
 
     public function showClientByCategory(Category $category)

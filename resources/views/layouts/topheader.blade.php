@@ -5,8 +5,8 @@
                 <img src="{{ asset('images/logo_gendama.png') }}" alt="げん玉" width="181" height="29">
             </a>
         </ul>
-        <div class="right">
-            <ul>
+        <div class="right hide-on-small-only">
+            <ul class="hide-on-small-only">
                 <!-- Authentication Links -->
                 @guest
                     <a href="{{ route('login') }}" class="waves-effect waves-light btn hide-on-small-only red lighten-1">Login</a>
@@ -33,8 +33,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="user_menu" href="{{ route('passbook') }}"><span>{{ Auth::user()->userPoint->approval_point }}pt
-                                </span>(判定中<span>{{ Auth::user()->userPoint->pending_point }}pt</span>)
+                            <a class="user_menu" href="{{ route('passbook') }}"><span>{{ Auth::user()->userPoint ? Auth::user()->userPoint->approval_point : 0 }}pt
+                                </span>(判定中<span>{{ Auth::user()->userPoint ? Auth::user()->userPoint->pending_point : 0 }}pt</span>)
                             </a>
                         </li>
                         <li class="dropdown">

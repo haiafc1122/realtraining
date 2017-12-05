@@ -35,5 +35,20 @@
         </div>
     </div>
 @endsection
+@section('bottom_js')
+    <script>
+        $(document).ready(function () {
+            if ($("body").hasScrollBar()) {
+                $("#bottom").addClass("footer-fix");
+            }
+        });
+
+        (function($) {
+            $.fn.hasScrollBar = function() {
+                return this.get(0).scrollHeight > this.height();
+            }
+        })(jQuery);
+    </script>
+@endsection
 
 

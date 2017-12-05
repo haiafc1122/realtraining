@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('add_css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endsection
 
-@section('main')
+@section('content')
 <div id="login-block" class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -48,11 +48,11 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                      {{--  <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="g-recaptcha" data-sitekey="6LcLzDgUAAAAAAmjSNrabR63TsJlSXUDivy9i2mU"></div>
                             </div>
-                        </div>
+                        </div>--}}
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
@@ -83,8 +83,8 @@
 </div>
 @endsection
 
-@section('bottom_js')
+{{--@section('bottom_js')
     <script src='https://www.google.com/recaptcha/api.js?hl=ja'></script>
-@endsection
+@endsection--}}
 
 

@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('content')
+@section('main')
     @include('layouts.header', ['categories' => $categories])
     <section id="blog_main">
         <div class="container white">
@@ -21,7 +21,8 @@
                                 </div>
                                 <div class="col s8">
                                     <h5 class="title_2">
-                                        <a href="" class="teal-text text-darken-1"><strong>{{ $client->title }}</strong></a>
+                                        <a href="{{ route('client.show', $client->id) }}"
+                                           class="teal-text text-darken-1"><strong>{{ $client->title }}</strong></a>
                                     </h5>
                                     <p class="mg_b_10">{{ $client->description }}</p>
                                     <small><i><strong style="color: #ffa102;">({{ ($client->point_num)*($client->rate)*0.1 }}) <span style="font-size: 15px;">ポイント</span></strong></i></small>
@@ -43,3 +44,6 @@
         </div>
     </section>
 @endsection
+
+
+

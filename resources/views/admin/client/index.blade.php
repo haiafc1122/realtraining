@@ -18,69 +18,65 @@
         <section class="content">
             <!-- Default box -------------------------------------------->
             <div class="container">
-                @if(session('message'))
-                    <div class="alert alert-danger">
-                        {{ session('message')}}
-                    </div>
-                @elseif (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success')}}
-                    </div>
-                @endif
                 <div class="row">
-                    <div class="card">
-                        <div class="header">
-                            <h4 class="title">Cients</h4>
-                            <p class="category">List of clients</p>
+                    @if(session('message'))
+                        <div class="alert alert-danger">
+                            {{ session('message')}}
                         </div>
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-striped">
-                                <thead>
-                                <th>ID</th>
-                                <th>タイトル</th>
-                                <th>発行日</th>
-                                <th>締め切り</th>
-                                <th>リンク</th>
-                                <th>Banner</th>
-                                <th>ポイント</th>
-                                <th>レート</th>
-                                <th>説明</th>
-                                <th></th>
-                                <th></th>
-                                </thead>
-                                <tbody>
-                                @foreach($clients as $client)
-                                    <tr>
-                                        <td> {{ $client['id'] }} </td>
-                                        <td> {{ $client['title'] }} </td>
-                                        <td> {{ $client['started_date'] }} </td>
-                                        <td> {{ $client['end_date'] }} </td>
-                                        <td> {{ $client['url'] }} </td>
-                                        <td> {{ $client['banner'] }} </td>
-                                        <td> {{ $client['point_num'] }} </td>
-                                        <td> {{ $client['rate'] }} </td>
-                                        <td> {{ $client['description'] }} </td>
-                                        <td class="center">
-                                            <i class="fa fa-pencil fa-fw"></i>
-                                            <a href="{{ url('admin/client/' . $client->id . '/edit') }}">Edit</a>
-                                        </td>
-                                        <td class="center">
-                                            <form action="{{ url('admin/client/' . $client->id) }}" method="POST">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
+                    @elseif (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success')}}
+                        </div>
+                    @endif
+                </div>
+                <div class="row">
+                    <table class="table table-sm">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1" width="98" >ID</th>
+                            <th class="col-md-2" >タイトル</th>
+                            <th class="col-md-1" >発行日</th>
+                            <th class="col-md-1" >締め切り</th>
+                            <th class="col-md-1" >Banner</th>
+                            <th class="col-md-1" >ポイント</th>
+                            <th class="col-md-1" >レート</th>
+                            <th class="col-md-2" >説明</th>
+                            <th class="col-md-1" ></th>
+                            <th class="col-md-1" ></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($clients as $client)
+                            <tr>
+                                <td> {{ $client->id }} </td>
+                                <td> {{ $client->title }} </td>
+                                <td> {{ $client->started_date }} </td>
+                                <td> {{ $client->end_date }} </td>
+                                <td><img src="{{ $client->banner }}" height="98" width="98"> </td>
+                                <td> {{ $client->point_num }} </td>
+                                <td> {{ $client->rate }} </td>
+                                <td> {{ $client->description }} </td>
+                                <td class="center">
+                                    <i class="fa fa-pencil fa-fw"></i>
+                                    <a href="{{ route('client.edit', $client->id) }}">Edit</a>
+                                </td>
+                                <td class="center">
+                                    <form action="{{ route('client.destroy', $client->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
 
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-trash-o  fa-fw"></i>Delete
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <div align="center">{!! $clients->links() !!}</div>
-                        </div>
-                    </div>
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash-o  fa-fw"></i>Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div align="center">{!! $clients->links() !!}</div>
                 </div>
             </div>
             <!-- /.box -------------------------------------------------->
