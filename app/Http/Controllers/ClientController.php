@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserPoint;
 use App\Models\Client;
 use App\Models\Category;
 use Auth;
-use DB;
 
 class ClientController extends Controller
 {
@@ -17,7 +17,7 @@ class ClientController extends Controller
 
     public function actionClient(Client $client)
     {
-        DB::transaction(function () use ($client) {
+
             $user = Auth::user();
             $user->actions()->create([
                 'client_id' => $client->id,
@@ -25,12 +25,14 @@ class ClientController extends Controller
                 'state'     => 'started',
             ]);
 
-            $user_point = $user->userPoint;
+            if (!$user->userPoint()->lockForUpdate()->first()){
+                UserPoint::create(['user_id'=> $user->id])->save();
+            }
+            $user_point = $user->userPoint()->lockForUpdate()->first();
 
             $user_point->update([
                 'pending_point' => ($user_point->pending_point + $client->get_active_points())
             ]);
-        });
 
         return redirect($client->url);
     }

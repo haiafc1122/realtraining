@@ -4,7 +4,7 @@ return [
         'categories'=> 10,
         'users'     => 10,
         'clients'   => 10,
-        'actions'   => 10,
+        'actions'   => 9,
         'admin'     => [
           'clients' => 15,
         ],
@@ -16,6 +16,7 @@ return [
     ],
     'category'=>[
         'use_often'  => 1,
+        'campaign'    => 2
     ],
     'contact' => [
         'checked' => 1,
@@ -31,16 +32,6 @@ return [
             'pending' => 'started',
             'approval'=> 'approval',
             'reject'  => 'reject'
-        ],
-        'toggle' => [
-            'approval' => [
-                'started' => '承認',
-                'approval'=> '--',
-            ],
-            'reject' => [
-                'started' => '却下',
-                'reject'=> '--',
-            ]
         ]
     ]
 ];

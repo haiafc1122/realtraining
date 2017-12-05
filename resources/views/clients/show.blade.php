@@ -2,6 +2,7 @@
 @section('content')
 @include('layouts.header', ['categories' => $categories])
 <div class="blog_main">
+    <div class="row"></div>
     <div class="container white">
         <div class="row">
             <div class="row mg_b_0">

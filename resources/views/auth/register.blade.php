@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('add_css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endsection
 
-@section('main')
+@section('content')
 <div id="register-block" class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

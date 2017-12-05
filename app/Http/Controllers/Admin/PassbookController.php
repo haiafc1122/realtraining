@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Action;
+use App\Models\UserPoint;
 use DB;
 
 class PassbookController extends Controller
@@ -17,14 +18,14 @@ class PassbookController extends Controller
     {
         if ($action->state == config('settings.action.status.pending'))
         {
-            $action->state = config('settings.action.status.approval');
-            $action->update();
-            DB::transaction(function () use ($action){
 
-                    $user_point = $action->user->userPoint->lockForUpdate()->first();
-                    $user_point->update([
+            DB::transaction(function () use ($action){
+                $action->state = config('settings.action.status.approval');
+                $action->update();
+                $user_point = UserPoint::where('user_id', $action->user_id)->lockForUpdate()->first();
+                $user_point->update([
                         'approval_point' => ($user_point->approval_point + $action->point),
-                        'pending_point' => ($user_point->pending_point - $action->point),
+                        'pending_point' => ($user_point->pending_point - $action->point)
                     ]);
             });
             return redirect()->back()->with('success', 'アクションが有効とマークしました');
@@ -36,11 +37,10 @@ class PassbookController extends Controller
     {
         if ($action->state == config('settings.action.status.pending'))
         {
-            $action->state = config('settings.action.status.reject');
-            $action->update();
             DB::transaction(function () use ($action){
-
-                $user_point = $action->user->userPoint->lockForUpdate()->first();
+                $action->state = config('settings.action.status.reject');
+                $action->update();
+                $user_point = UserPoint::where('user_id', $action->user->id)->lockForUpdate()->first();
                 $user_point->update([
                     'pending_point' => ($user_point->pending_point - $action->point),
                 ]);

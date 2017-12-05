@@ -2,7 +2,7 @@
 	text-transform: uppercase;
 }
 .full_width{
-	width: 100%;
+	width: 99%;
 }
 .block{
 	display: block;
@@ -281,7 +281,11 @@ footer>div{
     padding: 30px 20px;
     line-height: 25px;
 }
-
+.footer-fix {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
 .breadcrumb{
 	font-size: 14px;
 }

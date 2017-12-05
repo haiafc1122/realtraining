@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/welcome', function(){
     return view('welcome');
 });
+Route::resource('contact', 'ContactController', ['only' => ['create', 'store']]);
 
 Auth::routes();
 
@@ -29,7 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/profile/password', 'UserController@updatePassword')->name('password.update');
     Route::post('/client/{client}/action', 'ClientController@actionClient')->name('action.client');
     Route::get('/passbook', 'UserController@showPassbook')->name('passbook');
-    Route::resource('contact', 'ContactController', ['only' => ['create', 'store']]);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
