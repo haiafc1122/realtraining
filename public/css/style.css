@@ -67,6 +67,11 @@ header{
 	background-color: #558C89;
 	height: 80px;
 }
+#search{
+	height:60px;
+	background-color: rgba(140, 117, 128, 0.14);
+	padding: 4px!important;
+}
 #top .container{
 	padding-top: 15px;
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 @include('layouts.header', ['categories' => $categories])
-
+@include('layouts.search_form', ['keyword' => empty($keyword) ? '' : $keyword])
 <section id="index_page">
     <div class="container">
         <div class="row content_1">
@@ -65,11 +65,11 @@
                             <img class="activator"  src="{{ $campaign->banner }}" height="158" width="239">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{ $campaign->tile }}<i class="material-icons right">more_vert</i></span>
+                            <span class="card-title activator grey-text text-darken-4">{{ $campaign->title }}<i class="material-icons right">more_vert</i></span>
                             <p><a href="{{ route('client.show', $campaign->id) }}">ゲット</a></p>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">{{ $campaign->tile }}<i class="material-icons right">close</i></span>
+                            <span class="card-title grey-text text-darken-4">{{ $campaign->title }}<i class="material-icons right">close</i></span>
                             <p>{{ $campaign->description }}</p>
                         </div>
                     </div>
@@ -88,6 +88,7 @@
                             <img src="{{ $client_use_often->banner }}" class="materialboxed responsive-img" >
                         </div>
                         <div class="col s12 m8 text_box">
+                            <h6 class="black-text"><strong>{{ $client_use_often->title }}</strong></h6>
                             <p>{{ $client_use_often->description }}</p>
                             <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client_use_often->id) }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>ゲット</a></strong></p>
                         </div>
