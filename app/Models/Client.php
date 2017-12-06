@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Client extends Model
 {
     protected $table = 'clients';
+
+    use Searchable;
 
     protected $fillable =[
         'title', 'started_date', 'end_date', 'url', 'banner', 'point_num', 'rate', 'description'

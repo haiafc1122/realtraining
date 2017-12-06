@@ -5,6 +5,11 @@
     <div class="row"></div>
     <div class="container white">
         <div class="row">
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="row mg_b_0">
                 <div class="col s12 l9">
                     <div class="row">
