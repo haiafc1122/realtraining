@@ -2,7 +2,7 @@
 	text-transform: uppercase;
 }
 .full_width{
-	width: 99%;
+	width: 93%;
 }
 .block{
 	display: block;
@@ -196,7 +196,7 @@ section>div.container{
     position: relative;
 }
 .carousel{
-	height: 250px !important;
+	height: 197px !important;
 }
 .carousel .indicators .indicator-item{
 	height: 15px;

@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id')->comment('ユーザID');
             $table->string('name',50)->default('0')->comment('ユーザの名前');
             $table->string('email',50)->default('0')->unique()->comment('ユーザメール');
-            $table->date('birthday')->default('0')->comment('ユーザの生年月日');
+            $table->date('birthday')->comment('ユーザの生年月日');
             $table->enum('gender', ['Male', 'Female'])->comment('ユーザのジェンダー');
             $table->string('phone_number',15)->default('0')->unique()->comment('ユーザーの電話番号');
             $table->string('location')->default('0')->comment('ユーザーの住所');
