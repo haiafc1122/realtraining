@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
     Route::post('/login', 'AdminLoginController@login')->name('admin.login.submit');
 
     Route::middleware('auth:admin')->group(function (){
-        Route::get('/dashboard', 'Admincontroller@index')->name('admin.dashboard');
+        Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
         Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::resource('client', 'ClientController', ['except' => ['show']]);
