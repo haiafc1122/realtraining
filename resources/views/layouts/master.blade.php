@@ -24,7 +24,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('top_js')
 
-
 </head>
 <body>
 <div id="app">

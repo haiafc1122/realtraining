@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $table = 'messages';
+     protected $fillable = [
+         'content', 'user_id', 'is_public'
+     ];
 
     public function messageToAdmin()
     {
