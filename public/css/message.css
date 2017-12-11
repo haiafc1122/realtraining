@@ -1,0 +1,35 @@
+.messages{
+    border: 1px solid rgba(0, 0, 0, 0.28);
+    height: 386px;
+    margin-bottom: 8px;
+    overflow: scroll;
+    padding: 5px;
+}
+
+#chatArea .visitors .message{
+    background: url("../images/visitor_mess.png") center no-repeat;
+    background-size: 100% 100%;
+    padding: 7px 9px 12px 25px;
+}
+
+#chatArea .currentRoom .message {
+    background: url("../images/current_mess.png") center no-repeat;
+    background-size: 100% 100%;
+    padding: 7px 25px 12px 9px;
+}
+#chatArea .currentRoom{
+    text-align: right;
+}
+
+#chatArea .currentRoom{
+    text-align: right;
+}
+#chatArea .wrap_messeage{
+    margin: 5px 0;
+    position: relative;
+    margin-top: 15px;
+}
+
+#chatArea .wrap_messeage .username , #chatArea .wrap_messeage .message{
+    display: inline-block;
+}

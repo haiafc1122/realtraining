@@ -11,27 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/welcome');
-});
-Route::get('/welcome', function(){
-    return view('welcome');
-});
 Route::resource('contact', 'ContactController', ['only' => ['create', 'store']]);
-
+Route::get('category/{category}', 'HomeController@showClientByCategory')->name('show_clients_by_category');
+Route::resource('client', 'ClientController', ['only' => ['show']]);
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/search', 'ClientController@searchClient')->name('search.clients');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('category/{category}', 'HomeController@showClientByCategory')->name('show_clients_by_category');
-    Route::resource('client', 'ClientController', ['only' => ['show']]);
-    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/profile', 'UserController@show')->name('user.show');
     Route::post('/profile', 'UserController@update')->name('user.update');
     Route::post('/profile/password', 'UserController@updatePassword')->name('password.update');
     Route::post('/client/{client}/action', 'ClientController@actionClient')->name('action.client');
     Route::get('/passbook', 'UserController@showPassbook')->name('passbook');
+    Route::post('sendMessage', 'ChatController@sendMessage')->name('send.message.to.group');
+    Route::get('getOldMessages', 'ChatController@getOldMessages');
+    Route::get('group', 'ChatController@index')->name('group.chat');
     Route::get('/search', 'ClientController@searchClient')->name('search.clients');
-
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){

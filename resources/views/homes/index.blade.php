@@ -3,7 +3,8 @@
 @section('content')
 @include('layouts.header', ['categories' => $categories])
 @include('layouts.search_form', ['keyword' => empty($keyword) ? '' : $keyword])
-<section id="index_page">
+<div class="row"></div>
+<section  class="row" id="index_page">
     <div class="container">
         <div class="row content_1">
             <div class="slider">
