@@ -15,6 +15,7 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id')->comment('クライアントの案件のID');
+            $table->integer('category_id')->unsigned()->default_('0')->comment('カテゴリーID');
             $table->string('title')->default_('0')->comment('クライアントの案件のタイトル');
             $table->dateTime('started_date')->comment('クライアントの案件の開始');
             $table->dateTime('end_date')->comment('クライアントの案件の締め切りの日');
@@ -25,6 +26,7 @@ class CreateClientsTable extends Migration
             $table->text('description')->comment('クライアントの案件の説明');
             $table->timestamps();
             $table->index('id');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
         DB::statement("ALTER TABLE `clients` comment 'クライアントの案件を格納'");
     }

@@ -1,4 +1,13 @@
 @extends('admin.components.main')
+
+@section('top_css')
+
+@endsection
+@section('top_js')
+
+
+@endsection
+
 @section('main')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -10,7 +19,7 @@
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
                 <li><a href="#">Client</a></li>
-                <li class="active">Create</li>
+                <li class="active">Edit</li>
             </ol>
         </section>
 
@@ -23,7 +32,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="row">
-                                    <form class="form-horizontal" role="form" method="POST" action="/admin/client/{{ $client->id}}">
+                                    <form class="form-horizontal" role="form" method="POST" action="{{ route('clients.update', $client->id ) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('PUT') }}
 
@@ -117,6 +126,20 @@
                                                 @endif
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="rolename">カテゴリー</label>
+                                            <div class="col-md-6">
+                                                <select class="custom-select" name="category_id">
+                                                    @foreach($categories as $category)
+                                                        <option value="{{ $category->id }}" @if($client->category_id == $category->id) selected @endif>
+                                                            {{ $category->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
 
                                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                                             <label for="description" class="col-md-4 control-label">説明</label>

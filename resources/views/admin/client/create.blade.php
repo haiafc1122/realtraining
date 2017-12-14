@@ -31,7 +31,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="row">
-                                    <form class="form-horizontal" role="form" method="POST" action="{{ route('client.store') }}">
+                                    <form class="form-horizontal" role="form" method="POST" action="{{ route('clients.store') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                             <label for="title" class="col-md-4 control-label">タイトル</label>
@@ -117,6 +117,18 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="rolename">カテゴリー</label>
+                                            <div class="col-md-6">
+                                                <select class="custom-select" name="category_id">
+                                                    <option selected>カテゴリー</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                                             <label for="description" class="col-md-4 control-label">説明</label>
                                             <div class="col-md-6">
@@ -131,7 +143,7 @@
                                         <div class="form-group">
                                             <div class="col-md-6 col-md-offset-4">
                                                 <button type="submit" class="btn btn-primary">
-                                                    Create
+                                                    作成
                                                 </button>
                                             </div>
                                         </div>

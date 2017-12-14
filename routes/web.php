@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
         Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
-        Route::resource('client', 'ClientController', ['except' => ['show']]);
+        Route::resource('clients', 'ClientController');
         Route::get('user', 'UserController@index')->name('admin.show.list.user');
         Route::put('user/{user}/toggle_active_status', 'UserController@toggle_active_status')->name('admin.edit.user');
         Route::get('user/{user}/passbook', 'UserController@get_user_passbook')->name('admin.passbook');
@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::put('action/{action}/reject', 'PassbookController@reject')->name('admin.passbook.reject');
         Route::put('contact/{contact}/check', 'ContactController@check')->name('admin.contact.check');
         Route::resource('contact', 'ContactController', ['only' => ['index']]);
+        Route::get('/searchClients', 'SearchController@searchClient')->name('admin.search.clients');
 
     });
 

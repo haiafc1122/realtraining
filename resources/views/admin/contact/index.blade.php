@@ -36,11 +36,12 @@
                         <thead class="cf">
                         <tr>
                             <th class="col-md-1">ID</th>
+                            <th class="col-md-1">日付</th>
                             <th class="col-md-1">名前</th>
                             <th class="col-md-1">メール</th>
                             <th class="col-md-1">電話番号</th>
                             <th class="col-md-1">場所</th>
-                            <th class="col-md-5">内容</th>
+                            <th class="col-md-4">内容</th>
                             <th class="col-md-1">ステータス</th>
                             <th class="col-md-1">チェック</th>
                         </tr>
@@ -50,6 +51,7 @@
                             @foreach($contacts as $contact)
                                 <tr>
                                     <td>{{ $contact->id }}</td>
+                                    <td>{{ $contact->created_at }}</td>
                                     <td>{{ $contact->name }}</td>
                                     <td>{{ $contact->email }}</td>
                                     <td>{{ $contact->phone_number }}</td>

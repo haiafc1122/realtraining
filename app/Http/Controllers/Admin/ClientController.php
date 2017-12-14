@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Http\Requests\ClientCreateRequest;
@@ -14,37 +14,46 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::paginate(config('settings.paginate.clients'));
+        $clients = Client::orderBy('id', 'desc')->paginate(config('settings.paginate.clients'));
         return view('admin.client.index', compact('clients'));
     }
 
     public function create()
     {
-        return view('admin.Client.create');
+        $categories = Category::all();
+        return view('admin.Client.create',compact('categories'));
     }
 
     public function store(ClientCreateRequest $request)
     {
         $client = new Client();
         $client->fill($request->all())->save();
-        return redirect('admin/client')->with('success', '作成しました');
+        return redirect('admin/clients')->with('success', '作成しました');
     }
 
     public function edit(Client $client)
     {
-        return view('admin.client.edit', compact('client'));
+        $categories = Category::all();
+
+        return view('admin.client.edit', compact(['client', 'categories']));
     }
 
     public function update(ClientCreateRequest $request, Client $client)
     {
         $client->fill($request->all())->save();
-        return redirect('/admin/client')->with('success', '更新しました');
+        return redirect('/admin/clients')->with('success', '更新しました');
     }
 
     public function destroy(client $client)
     {
         $client->delete();
-        return redirect('/admin/client')->with('success', '削除しました!');
+        return redirect('/admin/clients')->with('success', '削除しました!');
+    }
+
+    public function show(Client $client)
+    {
+        $categories = Category::all();
+        return view('admin.client.show', compact(['client', 'categories']));
     }
 
 }

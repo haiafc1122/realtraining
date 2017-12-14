@@ -12,7 +12,7 @@ class Client extends Model
     use Searchable;
 
     protected $fillable =[
-        'title', 'started_date', 'end_date', 'url', 'banner', 'point_num', 'rate', 'description'
+        'category_id', 'title', 'started_date', 'end_date', 'url', 'banner', 'point_num', 'rate', 'description'
     ];
 
     public function actions()
@@ -20,15 +20,24 @@ class Client extends Model
         return $this->hasMany(Action::class, 'client_id');
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class, 'category_client', 'client_id', 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function get_active_points()
     {
         $active_point = $this->point_num * $this->rate * 0.1;
         return $active_point;
+    }
+
+    public function use_possible()
+    {
+        if ( $this->started_date > now() || $this->end_date < now()){
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

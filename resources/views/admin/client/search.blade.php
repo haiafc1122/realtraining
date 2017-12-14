@@ -18,7 +18,7 @@
 
         <section class="content">
         @include('admin.components.search_form', ['keyword' => empty($keyword) ? '' : $keyword])
-            <!-- Default box -------------------------------------------->
+        <!-- Default box -------------------------------------------->
             <div class="container">
                 <div class="row">
                     @if(session('message'))
@@ -51,7 +51,7 @@
                         @foreach($clients as $client)
                             <tr>
                                 <td> {{ $client->id }} </td>
-                                <td> <a href="{{ route('clients.show', $client->id) }}">{{ $client->title }}</a> </td>
+                                <td> {{ $client->title }} </td>
                                 <td> {{ $client->started_date }} </td>
                                 <td> {{ $client->end_date }} </td>
                                 <td><img src="{{ $client->banner }}" height="98" width="98"> </td>
