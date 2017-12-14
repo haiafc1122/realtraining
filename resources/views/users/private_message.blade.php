@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="{{ asset('css/message.css') }}">
 @endsection
 @section('main')
-    <div class="row"></div>
-    <div class="container spark-screen">
-        <div class="row">
+    <div class="row" ></div>
+    <div class="container spark-screen ">
+        <div class="row privateMessage">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">グループチャット</div>
+                    <div class="panel-heading" id="heading-admin">{{ request()->route('user') }}</div>
                     <div class="panel-body">
                         <div id="textArea" class="row">
                             <div id="chatArea" class="col-lg-12" >
@@ -24,11 +24,18 @@
                             <div class="col-lg-12">
                                 <form action="{{ route('send.message') }}" method="POST">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" >
-                                    <input type="hidden" name="user_name" value="{{ Auth::user()->name }}" >
-                                    <textarea class="form-control msg" id="txtMessage" placeholder="入力"></textarea>
-                                    <br/>
-                                    <input type="button" value="送信" class="btn btn-success send-msg">
+                                    <div class="panel-footer">
+                                        <div class="input-group">
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" >
+                                            <input type="hidden" name="user_name" value="{{ Auth::user()->name }}" >
+                                            <input type="text" class="form-control" id="txtMessage" placeholder="入力" required autofocus />
+                                            <span class="input-group-btn">
+                                                 <button class="btn waves-effect waves-light" type="submit" id="btnChat" >送信
+                                                     <i class="material-icons right">send</i>
+                                                 </button>
+                                            </span>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -43,23 +50,36 @@
         var socket = io.connect('http://localhost:8890');
         var user_id = $("input[name='user_id']").val();
         var user_name = $("input[name='user_name']").val();
-        var token = $("input[name='_token']").val();
+        var receiverUser = '{{request()->route('user')}}';
+        /*switch(supporter) {
+            case "supporter1":
+                supporter_id = "{{ config('settings.message.supporter1') }}";
+                break;
+            case "supporter2":
+                supporter_id = "{{ config('settings.message.supporter2') }}";
+                break;
+            default:
+                supporter_id = "{{ config('settings.message.supporter1') }}";
+        }*/
+
         $.ajax({
             url: '/getOldMessages',
             type: 'get',
             dataType: 'json',
             data: {
-                'is_public':1
+                'is_public':0,
+                'receiverUser':receiverUser,
+                'user_id':user_id
             },
             success: function(data) {
                 $.each(data, function (k, message) {
                     if (message.sender.id == user_id){
                         $('#messages').prepend(
-                            "<div class='wrap_messeage currentRoom' ><div class='message'>"+message.content+"</div><div class='username'>"+ ':' +message.sender.name+ "</div></div>"
+                            "<div class='message my-message'>"+message.content+"</div>"
                         );
                     } else {
                         $('#messages').prepend(
-                            "<div class='wrap_messeage visitors' ><div class='username'>"+message.sender.name+ ':'+"</div><div class='message'>"+message.content+"</div></div>"
+                            "<div class='message'>"+message.content+"</div>"
                         );
                     }
                 });
@@ -69,21 +89,31 @@
                 alert('古いメッセージを読み込めません');
             }
         });
+        socket.emit('online');
+        socket.emit('register_id', { user_id:user_id });
 
-        socket.on('message', function (data) {
-            data = jQuery.parseJSON(data);
-            if (data.user_id !== user_id){
-                $("#messages").append( "<div class='wrap_messeage visitors' ><div class='username'>"+data.user_name+ ':'+"</div><div class='message'>"+data.message+"</div></div>" );
-            }
+        socket.on('receive_message', function (data) {
+
+            $("#messages").append( "<div class='message'>"+data.message+"</div>" );
             $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
 
         });
 
-        $(".send-msg").click(function(e){
-            var msg = $("#txtMessage").val();
+        $("#btnChat").click(function(e){
             e.preventDefault();
-            if(msg != '') {
-                $("#messages").append("<div class='wrap_messeage currentRoom' ><div class='message'>" + msg + "</div><div class='username'>" + ':' + user_name + "</div></div>");
+            var msg = $("#txtMessage").val();
+            var user_id = $("input[name='user_id']").val();
+            var token = $("input[name='_token']").val();
+            var receiverUser = '{{request()->route('user')}}';
+
+            if(msg != ''){
+                socket.emit('send_message',{
+                    from:user_id,
+                    to:receiverUser,
+                    content:msg,
+                    username:user_name
+                });
+                $("#messages").append( "<div class='message my-message'>"+msg+"</div>" );
             }
             $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
 
@@ -96,31 +126,16 @@
                         '_token':token,
                         'message':msg,
                         'user_id':user_id,
-                        'user_name':user_name,
-                        'is_public':1
+                        'receiverUser':receiverUser,
+                        'is_public':0
                     },
                     success:function(data){
-                        $(".msg").val('');
+                        $("#txtMessage").val('');
                     }
                 });
             }else{
                 alert("入力してから送信してください");
             }
-        })
-
-        socket.on('typing',function(){
-            $('#type_notification').html('<div class="typing"><img width="50px" heigh="20px" src="../images/typing.gif">'+'誰が入力している</div>');
-        });
-        socket.on('stop typing',function(){
-            $('#type_notification').html('');
-        });
-        $(document).ready(function() {
-            $('#txtMessage').focusin(function () {
-                socket.emit("i typing");
-            });
-            $('#txtMessage').focusout(function () {
-                socket.emit("i stop typing");
-            });
         });
     </script>
 @endsection

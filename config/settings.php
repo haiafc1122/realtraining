@@ -25,6 +25,8 @@ return [
     ],
     'message' => [
         'group' => 1,
+        'supporter1' => 1,
+        'supporter2' => 2
     ],
     'action' => [
         'state' => [

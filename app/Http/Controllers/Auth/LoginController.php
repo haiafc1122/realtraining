@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -45,6 +47,7 @@ class LoginController extends Controller
             auth()->logout();
             return back()->with('activeWarning', 'あなたのアカウントはブロックされています');
         }
+        Cookie::queue(Cookie::make('logged_user', $user->id, 360000));
         return redirect()->intended($this->redirectPath());
     }
 

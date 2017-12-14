@@ -21,6 +21,6 @@ class Admin extends Authenticatable
 
     public function messages()
     {
-        return $this->hasMany(MessageToAdmin::class, 'admin_id');
+        return $this->hasMany(MessageToSuporter::class, 'admin_id');
     }
 }

@@ -16,7 +16,7 @@ class CreateCategorryClientTable extends Migration
         Schema::create('category_client', function (Blueprint $table) {
             $table->integer('category_id')->unsigned()->comment('カテゴリーID');
             $table->integer('client_id')->unsigned()->comment('クライアントID');
-            $table->timestamp('created_at')->default('0000-00-00 00:00:00')->comment('作成した日時');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成した日時');
             $table->primary(['category_id', 'client_id']);
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('client_id')->references('id')->on('clients');

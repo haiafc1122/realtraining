@@ -17,8 +17,8 @@ class CreateMessagesTable extends Migration
             $table->bigIncrements('id')->comment('メッセージのID');
             $table->string('content')->default('0')->comment('メッセージの内容');
             $table->integer('user_id')->unsigned()->default('0')->comment('差出人ID');
-            $table->boolean('is_public')->default('0')->comment('グループのメッセージかプライベートか');
-            $table->timestamp('created_at')->default('0000-00-00 00:00:00')->comment('作成日時');
+            $table->boolean('is_public')->default('1')->comment('グループのメッセージかプライベートか');
+            $table->timestamps();
             $table->index('id');
             $table->foreign('user_id')->references('id')->on('users');
         });

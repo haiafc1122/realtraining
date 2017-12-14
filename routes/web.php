@@ -24,10 +24,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/profile/password', 'UserController@updatePassword')->name('password.update');
     Route::post('/client/{client}/action', 'ClientController@actionClient')->name('action.client');
     Route::get('/passbook', 'UserController@showPassbook')->name('passbook');
-    Route::post('sendMessage', 'ChatController@sendMessage')->name('send.message.to.group');
+    Route::post('sendMessage', 'ChatController@sendMessage')->name('send.message');
     Route::get('getOldMessages', 'ChatController@getOldMessages');
     Route::get('group', 'ChatController@index')->name('group.chat');
+    Route::get('chat/{user}', 'ChatController@getChat')->name('chat.to');
     Route::get('/search', 'ClientController@searchClient')->name('search.clients');
+
+
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
