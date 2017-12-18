@@ -87,8 +87,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/admin/client') }}"><i class="fa fa-circle-o"></i>Index</a></li>
-                    <li><a href="{{ url('/admin/client/create') }}"><i class="fa fa-circle-o"></i>Create</a></li>
+                    <li><a href="{{ url('/admin/clients') }}"><i class="fa fa-circle-o"></i>Index</a></li>
+                    <li><a href="{{ url('/admin/clients/create') }}"><i class="fa fa-circle-o"></i>Create</a></li>
                 </ul>
             </li>
         </ul>

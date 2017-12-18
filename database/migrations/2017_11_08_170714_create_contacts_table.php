@@ -21,7 +21,7 @@ class CreateContactsTable extends Migration
             $table->string('location')->default('0')->comment('ビジター ・ユーザーの住所');
             $table->text('content')->comment('問い合わせの内容');
             $table->boolean('checked')->default('0')->comment('内容がチェックかどうか');
-            $table->timestamp('created_at')->default('0000-00-00 00:00:00')->comment('問い合わせの時間');
+            $table->timestamps();
         });
         DB::statement("ALTER TABLE `contacts` comment 'ビジター・ユーザーの問い合わせを格納'");
 

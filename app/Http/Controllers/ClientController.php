@@ -20,28 +20,29 @@ class ClientController extends Controller
     public function actionClient(Client $client)
     {
 
-            $user = Auth::user();
-            $user->actions()->create([
-                'client_id' => $client->id,
-                'point'     => $client->get_active_points(),
-                'state'     => 'started',
-            ]);
-
-            if (!$user->userPoint()->lockForUpdate()->first()){
-                UserPoint::create(['user_id'=> $user->id])->save();
-            }
-
-        if ( $client->started_date > now() || $client->end_date < now()) {
+        if ( !$client->use_possible()) {
             return back()->with('error', 'この案件はすでに無効になりました！利用できなくなります！');
+        }
+
+        $user = Auth::user();
+        $user->actions()->create([
+            'client_id' => $client->id,
+            'point'     => $client->get_active_points(),
+            'state'     => 'started',
+        ]);
+
+        if (!$user->userPoint()->lockForUpdate()->first()){
+            UserPoint::create(['user_id'=> $user->id])->save();
         }
 
         $user_point = $user->userPoint()->lockForUpdate()->first();
 
-            $user_point->update([
-                'pending_point' => ($user_point->pending_point + $client->get_active_points())
-            ]);
+        $user_point->update([
+            'pending_point' => ($user_point->pending_point + $client->get_active_points())
+        ]);
 
         return redirect($client->url);
+
     }
     public function searchClient(Request $request)
     {

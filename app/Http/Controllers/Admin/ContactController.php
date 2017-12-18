@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::paginate(config('settings.paginate.contact'));
+        $contacts = Contact::orderBy('id', 'desc')->paginate(config('settings.paginate.contact'));
         return view('admin.contact.index', compact('contacts'));
     }
 

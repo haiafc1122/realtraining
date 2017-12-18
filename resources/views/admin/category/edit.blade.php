@@ -26,7 +26,7 @@
 
                         <div class="panel-body">
                             <!-- create form -->
-                            <form action="/admin/category/{{ $category->id }}" method="POST" class="form-horizontal">
+                            <form action="{{ route('category.update', $category->id)}}" method="POST" class="form-horizontal">
                                 {{ csrf_field() }}
                                 {{ method_field('PUT') }}
 
@@ -57,7 +57,7 @@
                                 <div class="form-group">
                                     <div class="col-sm-offset-3 col-sm-6">
                                         <button type="submit" class="btn btn-default">
-                                            <i class="fa fa-btn fa-save"></i>Update
+                                            <i class="fa fa-btn fa-save"></i>アプデート
                                         </button>
                                     </div>
                                 </div>
