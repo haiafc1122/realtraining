@@ -42,60 +42,66 @@
         </div>
 
         @if(!empty($client_use_oftens))
-            <div class="content_2">
-                <div class="carousel" data-indicators="true">
+            <div class="row">
+                <div class="content_2">
+                    <div class="carousel" data-indicators="true">
                         @foreach($client_use_oftens as $client_use_often)
-                        <a class="carousel-item" href="{{ route('client.show', $client_use_often->id) }}"><img src="{{ $client_use_often->banner }}"></a>
+                            <a class="carousel-item" href="{{ route('client.show', $client_use_often->id) }}"><img src="{{ $client_use_often->banner }}"></a>
                         @endforeach
+                    </div>
                 </div>
             </div>
         @endif
 
         @if(!empty($campaigns))
-        <div class="row content_3">
-            <div class="row">
-                <h5 class="card-panel teal white-text">キャンペーン</h5>
-            </div>
-            <div class="row"></div>
-            @foreach($campaigns as $campaign)
-            <div class="col m4 s12">
-                <img src="images/placard_woman_4laugh.png" class="full_width">
-                <div class="text_box valign-wrapper">
-                    <div class="valign center card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator"  src="{{ $campaign->banner }}" height="158" width="239">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{ $campaign->title }}<i class="material-icons right">more_vert</i></span>
-                            <p><a href="{{ route('client.show', $campaign->id) }}">ゲット</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">{{ $campaign->title }}<i class="material-icons right">close</i></span>
-                            <p>{{ $campaign->description }}</p>
-                        </div>
-                    </div>
+            <div  class="row" id="content_3">
+                <div class="row">
+                    <h5 class="card-panel teal white-text">キャンペーン</h5>
                 </div>
+                <div class="row space" id="space"></div>
+                    @foreach($campaigns as $campaign)
+                        <div class="col m4 s10 offset-s2">
+                            <img src="images/placard_woman_4laugh.png" class="full_width">
+                            <div class="text_box valign-wrapper">
+                                <div class="valign center">
+                                    <div class="card">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <img class="activator"  src="{{ $campaign->banner }}" height="158" width="239">
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="card-title activator grey-text text-darken-4" id="card_title">{{ $campaign->title }}<i class="material-icons right">more_vert</i></span>
+                                            <p><a href="{{ route('client.show', $campaign->id) }}">ゲット</a></p>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4" id="card_title">{{ $campaign->title }}<i class="material-icons right">close</i></span>
+                                            <p>{{ $campaign->description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
             </div>
-            @endforeach
-        </div>
         @endif
         @if(!empty($client_use_oftens))
-            <div class="row content_4">
-                <div class=" hide-on-small-only"></div>
-                @foreach($client_use_oftens as $client_use_often)
-                <div class="col s12 m6">
-                    <div class="row valign-wrapper">
-                        <div class="col s12 m4 img">
-                            <img src="{{ $client_use_often->banner }}" class="materialboxed responsive-img" >
+            <div class="row">
+                <div class="row content_4">
+                    <div class=" hide-on-small-only"></div>
+                    @foreach($client_use_oftens as $client_use_often)
+                        <div class="col s12 m6">
+                            <div class="row valign-wrapper">
+                                <div class="col s12 m4 img">
+                                    <img src="{{ $client_use_often->banner }}" class="materialboxed responsive-img" >
+                                </div>
+                                <div class="col s12 m8 text_box">
+                                    <h6 class="black-text"><strong>{{ $client_use_often->title }}</strong></h6>
+                                    <p>{{ $client_use_often->description }}</p>
+                                    <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client_use_often->id) }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>ゲット</a></strong></p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col s12 m8 text_box">
-                            <h6 class="black-text"><strong>{{ $client_use_often->title }}</strong></h6>
-                            <p>{{ $client_use_often->description }}</p>
-                            <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client_use_often->id) }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>ゲット</a></strong></p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         @endif
     </div>

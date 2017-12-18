@@ -102,7 +102,7 @@
         })
 
         socket.on('typing',function(){
-            $('#type_notification').html('<div class="typing"><img width="50px" heigh="20px" src="../images/typing.gif">'+'誰が入力している</div>');
+            $('#type_notification').html('<div class="typing"><img width="50px" heigh="20px" src="../images/typing.gif">'+'誰かが入力している</div>');
         });
         socket.on('stop typing',function(){
             $('#type_notification').html('');

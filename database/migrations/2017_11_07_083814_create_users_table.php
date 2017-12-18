@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('location')->default('0')->comment('ユーザーの住所');
             $table->boolean('is_active')->default('1')->comment('ユーザーが自分のアカウントを削除なら値はFALSEになる');
             $table->string('password')->comment('パスワードのエンコード');
-            $table->rememberToken()->unique()->default('0')->comment('リメンバートークン');
+            $table->rememberToken()->comment('リメンバートークン');
             $table->timestamps();
             $table->index(['email', 'password']);
         });

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
+    public $timestamps = false;
     protected $table = 'messages';
      protected $fillable = [
          'content', 'user_id', 'is_public'

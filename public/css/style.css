@@ -218,9 +218,6 @@ section>div.container{
 	.carousel{
 		height: 200px;
 	}
-	section .row.content_3 {
-		background-position-x: -1000px;
-	}
 	section,section .content_1{
 		top: 0;
 	}
@@ -244,23 +241,29 @@ section>div.container{
 	    padding-bottom: 0;
 	}
 }
-section .row.content_3 {
-	background-size: cover;
+#content_3 {
     margin: 40px 0 0 0;
     padding-top: 80px;
 }
-section .content_3>div{
+#content_3>div{
     position: relative;
 }
-section .content_3 .text_box{
+#content_3 .text_box{
 	position: absolute;
     top: 0px;
     height: 42%;
     width: calc(100% - 23px);
     font-weight: bold;
 }
-section .content_3 .text_box p{
+#content_3 .text_box p{
 	width: 100%;
+}
+#card_title {
+	line-height: 20px !important;
+	font-size: 25px !important;
+}
+#space{
+	height: 50px;
 }
 section .content_4>div>div.row{
 	padding: 20px 20px;
