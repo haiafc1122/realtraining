@@ -36,7 +36,6 @@ class ClientController extends Controller
         }
 
         $user_point = $user->userPoint()->lockForUpdate()->first();
-
         $user_point->update([
             'pending_point' => ($user_point->pending_point + $client->get_active_points())
         ]);

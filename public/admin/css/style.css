@@ -9,3 +9,6 @@
 .reject {
     color: #ff0010;
 }
+.row-title{
+    margin-left: 16px !important;
+}
