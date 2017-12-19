@@ -22,6 +22,7 @@ $(document).ready(function(){
         shift:0,
         padding:50,
 	});
+
 	window.setInterval(function(){$('.carousel').carousel('next')},3000)
 	$(window).resize(function(){
 		remove_valign();

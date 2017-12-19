@@ -46,7 +46,7 @@
                 <div class="content_2">
                     <div class="carousel" data-indicators="true">
                         @foreach($client_use_oftens as $client_use_often)
-                            <a class="carousel-item" href="{{ route('client.show', $client_use_often->id) }}"><img src="{{ $client_use_often->banner }}"></a>
+                            <a class="carousel-item" href="{{ route('client.show', $client_use_often->id) }}"><img  src="{{ $client_use_often->banner }}" height="200" width="200"></a>
                         @endforeach
                     </div>
                 </div>
@@ -66,11 +66,11 @@
                                 <div class="valign center">
                                     <div class="card">
                                         <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator"  src="{{ $campaign->banner }}" height="158" width="239">
+                                            <img class="activator"  src="{{ $campaign->banner }}" height="158" width="220">
                                         </div>
                                         <div class="card-content">
                                             <span class="card-title activator grey-text text-darken-4" id="card_title">{{ $campaign->title }}<i class="material-icons right">more_vert</i></span>
-                                            <p><a href="{{ route('client.show', $campaign->id) }}">ゲット</a></p>
+                                            <p><a href="{{ route('client.show', $campaign->id) }}"> {{ $campaign->get_active_points() }}<img src="https://png.icons8.com/color/30/000000/money-box.png"></a></p>
                                         </div>
                                         <div class="card-reveal">
                                             <span class="card-title grey-text text-darken-4" id="card_title">{{ $campaign->title }}<i class="material-icons right">close</i></span>
@@ -91,12 +91,12 @@
                         <div class="col s12 m6">
                             <div class="row valign-wrapper">
                                 <div class="col s12 m4 img">
-                                    <img src="{{ $client_use_often->banner }}" class="materialboxed responsive-img" >
+                                    <img src="{{ $client_use_often->banner }}" height="200" width="200" class="materialboxed responsive-img" >
                                 </div>
                                 <div class="col s12 m8 text_box">
                                     <h6 class="black-text"><strong>{{ $client_use_often->title }}</strong></h6>
                                     <p>{{ $client_use_often->description }}</p>
-                                    <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client_use_often->id) }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>ゲット</a></strong></p>
+                                    <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client_use_often->id) }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud_download</i> {{ $client_use_often->get_active_points() }}<img src="https://png.icons8.com/ultraviolet/20/000000/paypal.png"></a></strong></p>
                                 </div>
                             </div>
                         </div>
@@ -111,6 +111,7 @@
     <script>
         $(document).ready(function(){
             $('.slider').slider();
+            $('.tooltipped').tooltip({delay: 50});
         });
     </script>
 @endsection

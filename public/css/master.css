@@ -6,7 +6,6 @@
 #bottom{
     width: 100%;
     background-color: #444444;
-    height: 50px;
 }
 #bottom>div{
     height: 100%;
@@ -23,4 +22,19 @@
 
 #img-privacypolicy{
     right: 9px;
+}
+
+html, body {
+    height: 100%;
+}
+#app {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#app:after {
+    content: "";
+    display: block;
+}
+#bottom, #app:after {
+    height: 50px;
 }

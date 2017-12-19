@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.master')
+@section('main')
 @include('layouts.header', ['categories' => $categories])
 <div class="blog_main">
     <div class="row"></div>
@@ -11,7 +11,7 @@
                 </div>
             @endif
             <div class="row mg_b_0">
-                <div class="col s12 l9">
+                <div class="col s12">
                     <div class="row">
                         <div class="col s12">
                             <div class="row">

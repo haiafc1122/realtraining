@@ -14,6 +14,10 @@ return [
     'user'=>[
         'active_true'  =>1,
         'active_false' =>0,
+        'status' =>[
+            1 => 'アクティブ',
+            0 => '非アクティブ'
+        ]
     ],
     'category'=>[
         'use_often'  => 1,

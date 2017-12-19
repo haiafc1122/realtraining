@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('content')
+@section('main')
     @include('layouts.header', ['categories' => $categories])
     @include('layouts.search_form', ['keyword' => empty($keyword) ? '' : $keyword])
     <div class="row"></div>

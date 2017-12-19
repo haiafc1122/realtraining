@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->date('birthday')->comment('ユーザの生年月日');
             $table->enum('gender', ['Male', 'Female'])->comment('ユーザのジェンダー');
             $table->string('phone_number',15)->default('0')->unique()->comment('ユーザーの電話番号');
-            $table->string('location')->default('0')->comment('ユーザーの住所');
+            $table->string('location')->comment('ユーザーの住所');
             $table->boolean('is_active')->default('1')->comment('ユーザーが自分のアカウントを削除なら値はFALSEになる');
             $table->string('password')->comment('パスワードのエンコード');
             $table->rememberToken()->comment('リメンバートークン');

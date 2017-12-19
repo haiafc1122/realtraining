@@ -41,4 +41,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Action::class)->orderBy('created_at', 'desc');
     }
+
+    public function active_status()
+    {
+        $user_status = config('settings.user.status');
+
+        return empty($user_status[$this->is_active]) ? "-" : $user_status[$this->is_active];
+    }
 }
