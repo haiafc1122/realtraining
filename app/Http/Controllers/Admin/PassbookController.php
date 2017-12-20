@@ -28,7 +28,7 @@ class PassbookController extends Controller
                         'pending_point' => ($user_point->pending_point - $action->point)
                     ]);
             });
-            return redirect()->back()->with('success', 'アクションが有効とマークしました');
+            return redirect()->back()->with('success', 'アクションを有効とマークしました');
 
         }
     }
@@ -45,7 +45,7 @@ class PassbookController extends Controller
                     'pending_point' => ($user_point->pending_point - $action->point),
                 ]);
             });
-            return redirect()->back()->with('success', 'アクションが無効とマークしました');
+            return redirect()->back()->with('success', 'アクションを無効とマークしました');
 
         }
     }

@@ -18,7 +18,10 @@
                             @foreach ($actions as $action)
                                 <tr>
                                     <td>{{ $action->created_at }}</td>
-                                    <td>{{ $action->client->title }}</td>
+                                    <td>
+                                        <a target="_blank" href="{{ route('client.show', $action->client->id) }}"
+                                           class="teal-text text-darken-1"><strong>{{ $action->client->title }}</strong></a>
+                                    </td>
                                     <td class="{{ $action->state }}">{{ $action->show_status() }}</td>
                                     <td>{{ $action->point }}</td>
                                 </tr>

@@ -20,11 +20,11 @@ class UserController extends Controller
         {
             $user->is_active = config('settings.user.active_false');
             $user->update();
-            return redirect()->back()->with('success', 'ユーザーが無効とマークしました');
+            return redirect()->back()->with('success', 'ユーザーを無効とマークしました');
         } else {
             $user->is_active = config('settings.user.active_true');
             $user->update();
-            return redirect()->back()->with('success', 'ユーザーが有効とマークしました');
+            return redirect()->back()->with('success', 'ユーザーを有効とマークしました');
         }
     }
 

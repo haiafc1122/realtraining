@@ -35,14 +35,16 @@
                     <table class="table table-sm">
                         <thead>
                         <tr>
-                            <th class="col-md-1" width="98" >ID</th>
-                            <th class="col-md-2" >タイトル</th>
+                            <th class="col-md-1" >ID</th>
+                            <th class="col-md-1" >タイトル</th>
+                            <th class="col-md-1" >カテゴリー</th>
                             <th class="col-md-1" >発行日</th>
                             <th class="col-md-1" >締め切り</th>
                             <th class="col-md-1" >Banner</th>
                             <th class="col-md-1" >ポイント</th>
                             <th class="col-md-1" >レート</th>
                             <th class="col-md-2" >説明</th>
+                            <th class="col-md-1" >ステータス</th>
                             <th class="col-md-1" ></th>
                             <th class="col-md-1" ></th>
                         </tr>
@@ -52,23 +54,24 @@
                             <tr>
                                 <td> {{ $client->id }} </td>
                                 <td> <a href="{{ route('clients.show', $client->id) }}">{{ $client->title }}</a> </td>
+                                <td>{{ $client->category->name }}</td>
                                 <td> {{ $client->started_date }} </td>
                                 <td> {{ $client->end_date }} </td>
                                 <td><img src="{{ $client->banner }}" height="98" width="98"> </td>
                                 <td> {{ $client->point_num }} </td>
                                 <td> {{ $client->rate }} </td>
                                 <td> {{ $client->description }} </td>
+                                <td><div class="@if ($client->is_active == 0) status-inactive @else status-active @endif">{{ $client->active_status() }}</div></td>
                                 <td class="center">
                                     <i class="fa fa-pencil fa-fw"></i>
                                     <a href="{{ route('clients.edit', $client->id) }}">Edit</a>
                                 </td>
-                                <td class="center">
-                                    <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
+                                <td>
+                                    <form action="{{ url('admin/clients/' . $client->id .'/toggle_active_status') }}" method="POST">
                                         {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-trash-o  fa-fw"></i>Delete
+                                        {{ method_field('PUT') }}
+                                        <button type="submit" class="btn  {{ $client->is_active == 1 ? 'btn-danger' : 'btn-success' }}">
+                                            {{ $client->is_active == 1 ? 'Disable' : 'Enable' }}
                                         </button>
                                     </form>
                                 </td>

@@ -33,11 +33,18 @@ class Client extends Model
 
     public function use_possible()
     {
-        if ( $this->started_date > now() || $this->end_date < now()){
+        if ( $this->started_date > now() || $this->end_date < now() || $this->is_active == config('settings.client.active_false')){
             return false;
         } else {
             return true;
         }
+    }
+
+    public function active_status()
+    {
+        $client_status = config('settings.client.status');
+
+        return empty($client_status[$this->is_active]) ? "-" : $client_status[$this->is_active];
     }
 
 }

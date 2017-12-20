@@ -39,8 +39,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::get('/logout', 'AdminLoginController@logout')->name('admin.logout');
         Route::resource('category', 'CategoryController', ['except' => ['show']]);
         Route::resource('clients', 'ClientController');
+        Route::put('clients/{client}/toggle_active_status', 'ClientController@toggle_active_status')->name('admin.toggle_active.client');
         Route::get('user', 'UserController@index')->name('admin.show.list.user');
-        Route::put('user/{user}/toggle_active_status', 'UserController@toggle_active_status')->name('admin.edit.user');
+        Route::put('user/{user}/toggle_active_status', 'UserController@toggle_active_status')->name('admin.toggle_active.user');
         Route::get('user/{user}/passbook', 'UserController@get_user_passbook')->name('admin.passbook');
         Route::resource('passbook', 'PassbookController', ['only' => ['index']]);
         Route::put('action/{action}/approval', 'PassbookController@approval')->name('admin.passbook.approval');

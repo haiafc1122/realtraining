@@ -8,10 +8,8 @@
                             <form class="search-form" method="get" action="{{ route('admin.search.clients') }}">
                                 <div class="col-md-6 col-sm-6 search-col">
                                     <div class="form-group is-empty">
-                                        <input class="form-control keyword" name="keyword" @if (!empty($keyword)) value="{{ $keyword }}" @endif placeholder=" 検索 " type="text">
-                                        <span class="material-input"></span>
+                                        <input class="form-control keyword " name="keyword" @if (!empty($keyword)) value="{{ $keyword }}" @endif placeholder=" 検索 " type="text">
                                     </div>
-                                    <i class="fa fa-search"></i>
                                 </div>
                                 <div class="col-md-3 col-sm-6 search-col">
                                     <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span><strong> 検索</strong></button>
