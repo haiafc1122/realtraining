@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('add_css')
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endsection
 
-@section('content')
+@section('main')
 <div id="register-block" class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -16,7 +16,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label" >Name</label>
+                            <label for="name" class="col-md-4 control-label" >ネーム</label>
 
                             <div class="col-md-6">
                                 <input placeholder="名前を入力" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">メール</label>
 
                             <div class="col-md-6">
                                 <input placeholder="メールを入力" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                            <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
+                            <label for="phone_number" class="col-md-4 control-label">電話番号</label>
 
                             <div class="col-md-6">
                                 <input placeholder="携帯電話を入力" id="phone_number" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required>
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">パスワード</label>
 
                             <div class="col-md-6">
                                 <input placeholder="パスワードを入力" id="password" type="password" class="form-control" name="password" required>
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">パスワードを認証する</label>
 
                             <div class="col-md-6">
                                 <input placeholder="パスワードを再入力" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    登録
                                 </button>
                             </div>
                         </div>

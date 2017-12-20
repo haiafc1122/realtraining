@@ -29,15 +29,16 @@
                     <table class="table bordered ">
                         <thead>
                         <tr >
-                            <th>ID</th>
-                            <th>名前</th>
-                            <th>メール</th>
-                            <th>生年月日</th>
-                            <th>性別</th>
-                            <th>電話番号</th>
-                            <th>住所</th>
-                            <th>ステータス</th>
-                            <th></th>
+                            <th class="col-md-1">ID</th>
+                            <th class="col-md-1">名前</th>
+                            <th class="col-md-1">メール</th>
+                            <th class="col-md-1">生年月日</th>
+                            <th class="col-md-1">性別</th>
+                            <th class="col-md-1">電話番号</th>
+                            <th class="col-md-2">住所</th>
+                            <th class="col-md-1">ステータス</th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,7 +51,7 @@
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ $user->phone_number }}</td>
                                 <td>{{ $user->location }}</td>
-                                <td>{{ $user->is_active }}</td>
+                                <td>{{ $user->active_status() }}</td>
                                 <td>
                                     <form action="{{ url('admin/user/' . $user->id .'/toggle_active_status') }}" method="POST">
                                         {{ csrf_field() }}

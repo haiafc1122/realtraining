@@ -81,7 +81,7 @@
 
                                             <div class="form-group is-empty{{ $errors->has('phone_number') ? ' has-error' : '' }}">
                                                 <label for="phone_number" class="control-label">電話番号</label>
-                                                <input class="form-control" id="Phone" placeholder="{{ $user->phone_number }}" type="text" value="{{ old('phone_number') ? old('phone_number') : $user->phone_number }}" name="phone_number" >
+                                                <input class="form-control" id="phone_number" placeholder="{{ $user->phone_number }}" type="text" value="{{ old('phone_number') ? old('phone_number') : $user->phone_number }}" name="phone_number" >
                                                 <span class="material-input"></span>
                                                 @if ($errors->has('phone_number'))
                                                     <span>
@@ -91,7 +91,7 @@
                                             </div>
                                             <div class="form-group is-empty{{ $errors->has('location') ? ' has-error' : '' }}">
                                                 <label for="location" class="control-label">場所</label>
-                                                <input class="form-control" id="Phone" placeholder="{{ $user->location }}" type="text" value="{{ old('location') ? old('location') : $user->location }}" name="location">
+                                                <input class="form-control" id="location" placeholder="{{ $user->location }}" type="text" value="{{ old('location') ? old('location') : $user->location }}" name="location">
                                                 <span class="material-input"></span>
                                                 @if ($errors->has('location'))
                                                     <span>

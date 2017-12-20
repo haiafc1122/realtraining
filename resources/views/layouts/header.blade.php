@@ -10,39 +10,49 @@
 
                 </ul>
                 <ul id="navigation" class="side-nav">
-                    @if(Auth::user())
-                    <li><div class="userView">
-                            <div class="background">
-                                <img src="{{ asset('images/bg_natural_sougen.png') }}">
-                            </div>
+                    @guest
+                        <a href="{{ route('login') }}" class="waves-effect waves-light btn  red lighten-1">ログイン</a>
+                        <a href="{{ route('register') }}" class="waves-effect waves-light btn red lighten-1">新規会員登録</a>
+                        @else
+                        @if(Auth::user())
+                            <li><div class="userView">
+                                    <div class="background">
+                                        <img src="{{ asset('images/bg_natural_sougen.png') }}">
+                                    </div>
 
-                                <a class="user_menu" href="{{ route('passbook') }}"><span>{{ Auth::user()->userPoint ? Auth::user()->userPoint->approval_point : 0 }}pt
-                                </span>(判定中<span>{{ Auth::user()->userPoint ? Auth::user()->userPoint->pending_point : 0 }}pt</span>)
-                                </a>
-
-                            <ul>
-                                <a href=""><span class="name"><u>{{ Auth::user()->name }}</u></span></a>
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <img src="https://png.icons8.com/logout-rounded-up/nolan/25/000000">ログアウト
+                                    <a class="user_menu" href="{{ route('passbook') }}">
+                                        <span>
+                                            {{ Auth::user()->userPoint ? Auth::user()->userPoint->approval_point : 0 }}pt
+                                        </span>(判定中
+                                        <span>
+                                            {{ Auth::user()->userPoint ? Auth::user()->userPoint->pending_point : 0 }}pt
+                                        </span>)
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                                <li>
-                                    <a href="{{ route('user.update') }}"><img src="https://png.icons8.com/customer/nolan/25/000000">プロフィール</a>
+                                    <ul>
+                                        <a href=""><span class="name"><u>{{ Auth::user()->name }}</u></span></a>
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                                <img src="https://png.icons8.com/logout-rounded-up/nolan/25/000000">ログアウト
+                                            </a>
 
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    @endif
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('user.update') }}"><img src="https://png.icons8.com/customer/nolan/25/000000">プロフィール</a>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        @endif
+                    @endguest
                     @foreach($categories as $category)
-                        <li><a href="{{ route('show_clients_by_category', $category->id) }}">{{ $category->name }}</a></li>
+                        <li class="bold"><a class="waves-effect waves-teal" href="{{ route('show_clients_by_category', $category->id) }}">{{ $category->name }}</a></li>
                     @endforeach
 
                 </ul>

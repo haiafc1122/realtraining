@@ -19,8 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('password')->comment('管理者のパスワード');
             $table->string('avatar')->default('0')->comment('管理者のアバター');
             $table->rememberToken()->comment('リメンバートークン');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('作成した日');
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日時');
+            $table->timestamps();
             $table->index('id');
         });
         DB::statement("ALTER TABLE `admins` comment '管理者の情報を格納'");

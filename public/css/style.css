@@ -188,7 +188,8 @@ section .content_1 ul p{
 }
 section .content_2{
 	background-color: #EEEEEE;
-    padding: 0 30px;
+	padding-top: 30px;
+	padding-bottom: 25px;
     height: 260px;
     overflow: hidden;
 }
@@ -404,4 +405,7 @@ footer>div{
 }
 .modal .modal-footer .btn{
 	float: none;
+}
+#reset-password-panel {
+	height: 568px;
 }
