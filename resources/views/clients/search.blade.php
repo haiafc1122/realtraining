@@ -17,7 +17,7 @@
                             <div class="col s12 m8 text_box">
                                 <h6 class="black-text"><strong>{{ $client->title }}</strong></h6>
                                 <p>{{ $client->description }}</p>
-                                <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client->id) }}" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>ゲット</a></strong></p>
+                                <p class="light-blue-text text-darken-2"><strong><a href="{{ route('client.show', $client->id) }}" class="waves-effect waves-light btn">{{ $client->get_active_points() }}<i class="material-icons left">cloud_download</i>ゲット</a></strong></p>
                             </div>
                         </div>
                     </div>

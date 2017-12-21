@@ -36,7 +36,8 @@
                         <thead>
                         <tr>
                             <th class="col-md-1" width="98" >ID</th>
-                            <th class="col-md-2" >タイトル</th>
+                            <th class="col-md-1" >タイトル</th>
+                            <th class="col-md-1" >カテゴリー</th>
                             <th class="col-md-1" >発行日</th>
                             <th class="col-md-1" >締め切り</th>
                             <th class="col-md-1" >Banner</th>
@@ -51,7 +52,8 @@
                         @foreach($clients as $client)
                             <tr>
                                 <td> {{ $client->id }} </td>
-                                <td> {{ $client->title }} </td>
+                                <td> <a href="{{ route('clients.show', $client->id) }}">{{ $client->title }}</a> </td>
+                                <td>{{ $client->category->name }}</td>
                                 <td> {{ $client->started_date }} </td>
                                 <td> {{ $client->end_date }} </td>
                                 <td><img src="{{ $client->banner }}" height="98" width="98"> </td>

@@ -44,16 +44,24 @@ class ClientController extends Controller
         return redirect('/admin/clients')->with('success', '更新しました');
     }
 
-    public function destroy(client $client)
-    {
-        $client->delete();
-        return redirect('/admin/clients')->with('success', '削除しました!');
-    }
-
     public function show(Client $client)
     {
         $categories = Category::all();
         return view('admin.client.show', compact(['client', 'categories']));
+    }
+
+    public function toggle_active_status(Client $client)
+    {
+        if ($client->is_active == config('settings.client.active_true'))
+        {
+            $client->is_active = config('settings.client.active_false');
+            $client->update();
+            return redirect()->back()->with('success', 'クライアントを無効とマークしました');
+        } else {
+            $client->is_active = config('settings.client.active_true');
+            $client->update();
+            return redirect()->back()->with('success', 'クライアントを有効とマークしました');
+        }
     }
 
 }

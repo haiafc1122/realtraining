@@ -51,7 +51,7 @@
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ $user->phone_number }}</td>
                                 <td>{{ $user->location }}</td>
-                                <td>{{ $user->active_status() }}</td>
+                                <td><div class="@if ($user->is_active == 0) status-inactive @else status-active @endif">{{ $user->active_status() }}</div></td>
                                 <td>
                                     <form action="{{ url('admin/user/' . $user->id .'/toggle_active_status') }}" method="POST">
                                         {{ csrf_field() }}

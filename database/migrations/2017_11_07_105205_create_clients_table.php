@@ -16,6 +16,7 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id')->comment('クライアントの案件のID');
             $table->integer('category_id')->unsigned()->default_('0')->comment('カテゴリーID');
+            $table->boolean('is_active')->default('1')->comment('クライアントを削除なら値はFALSEになる');
             $table->string('title')->default_('0')->comment('クライアントの案件のタイトル');
             $table->dateTime('started_date')->comment('クライアントの案件の開始');
             $table->dateTime('end_date')->comment('クライアントの案件の締め切りの日');

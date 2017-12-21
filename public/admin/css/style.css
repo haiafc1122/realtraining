@@ -12,3 +12,22 @@
 .row-title{
     margin-left: 16px !important;
 }
+.status-inactive {
+    background-color: red;
+    border-radius: 2px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.status-active {
+    background-color: green;
+    border-radius: 2px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
