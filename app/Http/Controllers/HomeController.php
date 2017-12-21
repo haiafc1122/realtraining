@@ -45,6 +45,7 @@ class HomeController extends Controller
 
     public function showClientByCategory(Category $category)
     {
+        $now = Carbon::now();
         $whereData = [
             ['started_date', '<=', $now],
             ['end_date', '>=', $now],
