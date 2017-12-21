@@ -21,7 +21,7 @@ class ClientController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.Client.create',compact('categories'));
+        return view('admin.client.create',compact('categories'));
     }
 
     public function store(ClientCreateRequest $request)
