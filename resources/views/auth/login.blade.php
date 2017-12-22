@@ -16,6 +16,11 @@
                         {{ session('activeWarning') }}
                     </div>
                 @endif
+                @if ($errors->has('g-recaptcha-response'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('g-recaptcha-response') }}
+                    </div>
+                @endif
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -48,9 +53,9 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                             <div class="col-md-6 col-md-offset-4">
-                                <div class="g-recaptcha" data-sitekey="6LcLzDgUAAAAAAmjSNrabR63TsJlSXUDivy9i2mU"></div>
+                                {!! app('captcha')->display(); !!}
                             </div>
                         </div>
                         <div class="form-group">
