@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $table = 'messages';
+    protected $fillable = [
+         'content', 'user_id', 'is_public'
+    ];
 
-    public function messageToAdmin()
+    public function messageToUser()
     {
-        return $this->hasOne(MessageToAdmin::class, 'message_id');
+        return $this->hasOne(MessageToSupporter::class, 'message_id');
     }
 
     public function sender()

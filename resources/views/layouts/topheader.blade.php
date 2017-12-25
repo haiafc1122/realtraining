@@ -32,11 +32,13 @@
                                 <li class="footer"><a href="#">See All Messages</a></li>
                             </ul>
                         </li>
+                        @if(Auth::user())
                         <li>
                             <a class="user_menu" href="{{ route('passbook') }}"><span>{{ Auth::user()->userPoint ? Auth::user()->userPoint->approval_point : 0 }}pt
                                 </span>(判定中<span>{{ Auth::user()->userPoint ? Auth::user()->userPoint->pending_point : 0 }}pt</span>)
                             </a>
                         </li>
+                        @endif
                         <li class="dropdown">
                             <a href="#" id="user_name" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::user()->name }} <span class="caret"></span>
