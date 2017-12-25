@@ -15,10 +15,7 @@ class ChatController extends Controller
 
     public function getChat()
     {
-        $cookie_val = Cookie::get('logged_user');
-        //dd($cookie);
-
-        return view('users.private_message', compact('cookie_val'));
+        return view('users.private_message');
     }
 
     public function sendMessage(Request $request )

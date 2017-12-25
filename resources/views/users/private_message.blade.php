@@ -51,16 +51,6 @@
         var user_id = $("input[name='user_id']").val();
         var user_name = $("input[name='user_name']").val();
         var receiverUser = '{{request()->route('user')}}';
-        /*switch(supporter) {
-            case "supporter1":
-                supporter_id = "{{ config('settings.message.supporter1') }}";
-                break;
-            case "supporter2":
-                supporter_id = "{{ config('settings.message.supporter2') }}";
-                break;
-            default:
-                supporter_id = "{{ config('settings.message.supporter1') }}";
-        }*/
 
         $.ajax({
             url: '/getOldMessages',
@@ -94,7 +84,7 @@
 
         socket.on('receive_message', function (data) {
 
-            $("#messages").append( "<div class='message'>"+data.message+"</div>" );
+            $("#messages").append( "<div class='message'>"+data.content+"</div>" );
             $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
 
         });

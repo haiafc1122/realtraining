@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('top_js')
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+@endsection
 
 @section('content')
 @include('layouts.header', ['categories' => $categories])
@@ -103,8 +108,34 @@
 @endsection
 @section('bottom_js')
     <script>
+        var logged_user = '{{ $user_id }}';
+        //var logged_user = ' @if (Auth::user()){{ Auth::user()->id }} @endif';
+        console.log('Log user',logged_user);
         $(document).ready(function(){
             $('.slider').slider();
+
+            $('#message_notify').on('click', 'li.message-link', function(e) {
+                $(this).remove();
+                var count = $('.count_message').html();
+                $('.count_message').html(--count);
+            });
+            if (logged_user) {
+                var socket = io.connect('http://localhost:8890');
+                socket.emit('register_id', { user_id: logged_user });
+                console.log("co log",logged_user);
+                socket.on('notify_new_message', function(data) {
+                    var receiverId = data.from_id;
+                    var receiverUsername = data.from_name;
+                    if (!$('#link' + receiverId).length) {
+                        $('#message_notify').prepend('<li class="message-link" id="link' + receiverId + '">'+
+                            '<a  href="/chat/' + receiverId + '">New message from ' + receiverUsername + '</a></li>');
+                        var count_message = $('.count_message').html();
+                        $('.count_message').html(++count_message);
+                    } else {
+                        $('#link' + receiverId).prependTo('#message_notify');
+                    }
+                });
+            }
         });
     </script>
 @endsection
